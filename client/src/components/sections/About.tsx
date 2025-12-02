@@ -27,7 +27,7 @@ export default function About() {
             <img
               src={urmiPic}
               alt="Dr. Urmil Bishnoi"
-              className="rounded-2xl shadow-xl w-full max-w-xl object-cover aspect-[3/4] bg-white"
+              className="rounded-2xl shadow-xl w-full max-w-xl h-auto object-contain bg-white"
             />
             <div className="absolute bottom-8 right-4 lg:-right-8 bg-white p-6 rounded-xl shadow-lg max-w-xs hidden md:block border border-gray-100">
               <div className="flex items-center gap-4 mb-2">
