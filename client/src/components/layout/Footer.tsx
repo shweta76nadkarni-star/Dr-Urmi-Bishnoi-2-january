@@ -27,6 +27,7 @@ export default function Footer() {
               <li><a href="#home" className="hover:text-primary transition-colors">Home</a></li>
               <li><a href="#about" className="hover:text-primary transition-colors">About Dr. Urmil</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">Services</a></li>
+              <li><a href="#blog" className="hover:text-primary transition-colors">Blog</a></li>
               <li><a href="#testimonials" className="hover:text-primary transition-colors">Testimonials</a></li>
               <li><a href="#contact" className="hover:text-primary transition-colors">Contact Us</a></li>
             </ul>

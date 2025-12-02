@@ -7,6 +7,7 @@ import Stats from "@/components/sections/Stats";
 import Testimonials from "@/components/sections/Testimonials";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
+import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 
@@ -22,6 +23,7 @@ export default function Home() {
         <Testimonials />
         <Pricing />
         <FAQ />
+        <Blog />
         <Contact />
       </main>
       <Footer />
