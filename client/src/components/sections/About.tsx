@@ -21,15 +21,15 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative flex justify-center lg:justify-start"
           >
-            <div className="absolute -inset-4 bg-primary/10 rounded-3xl -z-10 rotate-3" />
+            <div className="absolute -inset-4 bg-primary/5 rounded-[2rem] -z-10 rotate-0 translate-y-4 translate-x-4" />
             <img 
               src={urmiPic} 
               alt="Dr. Urmil Bishnoi" 
-              className="rounded-2xl shadow-xl w-full max-w-md mx-auto lg:mx-0 object-cover aspect-[3/4]"
+              className="rounded-2xl shadow-xl w-full max-w-md object-cover aspect-[3/4] bg-white"
             />
-            <div className="absolute bottom-8 right-8 lg:-right-8 bg-white p-6 rounded-xl shadow-lg max-w-xs hidden md:block">
+            <div className="absolute bottom-8 right-4 lg:-right-8 bg-white p-6 rounded-xl shadow-lg max-w-xs hidden md:block border border-gray-100">
               <div className="flex items-center gap-4 mb-2">
                 <div className="bg-primary/10 p-2 rounded-full text-primary font-bold text-xl">15+</div>
                 <div className="text-sm font-semibold text-gray-800">Years of Experience</div>

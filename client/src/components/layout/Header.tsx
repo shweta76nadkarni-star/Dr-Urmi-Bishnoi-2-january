@@ -38,13 +38,19 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-white/90 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-3"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollToSection("#home")}>
-          <img src={logo} alt="Dr. Urmil Bishnoi Logo" className="h-12 w-auto object-contain" />
+        <div
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={() => scrollToSection("#home")}
+        >
+          <img
+            src={logo}
+            alt="Dr. Urmil Bishnoi Logo"
+            className="h-16 w-auto object-contain"
+          />
         </div>
 
         {/* Desktop Nav */}
@@ -53,12 +59,12 @@ export default function Header() {
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
             >
               {link.name}
             </button>
           ))}
-          <Button 
+          <Button
             className="bg-primary hover:bg-primary/90 text-white rounded-full px-6"
             onClick={() => scrollToSection("#contact")}
           >
@@ -68,7 +74,11 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="h-6 w-6 text-gray-800" /> : <Menu className="h-6 w-6 text-gray-800" />}
+          {isOpen ? (
+            <X className="h-6 w-6 text-gray-800" />
+          ) : (
+            <Menu className="h-6 w-6 text-gray-800" />
+          )}
         </button>
       </div>
 
@@ -84,7 +94,7 @@ export default function Header() {
               {link.name}
             </button>
           ))}
-          <Button 
+          <Button
             className="w-full bg-primary hover:bg-primary/90 text-white rounded-full"
             onClick={() => scrollToSection("#contact")}
           >

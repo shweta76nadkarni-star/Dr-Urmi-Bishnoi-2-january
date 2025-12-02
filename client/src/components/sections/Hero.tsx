@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import heroBg from "@assets/stock_images/calm_nature_forest_s_8d880021.jpg";
+import heroBg from "@assets/stock_images/peaceful_mental_heal_0a892846.jpg";
 
 export default function Hero() {
   return (
