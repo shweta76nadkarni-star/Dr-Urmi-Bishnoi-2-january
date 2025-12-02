@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import heroBg from "@assets/stock_images/peaceful_mental_heal_0a892846.jpg";
+import heroBg from "@assets/hero_bg_leaves.jpg";
 
 export default function Hero() {
   return (
