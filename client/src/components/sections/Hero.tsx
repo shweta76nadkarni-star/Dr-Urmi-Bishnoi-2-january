@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block mb-4 text-lg md:text-xl font-medium tracking-wide text-white/90 font-heading">
-            Welcome to Psychologhist
+          
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-lg font-heading">
             Begin Your <br />
@@ -50,7 +50,7 @@ export default function Hero() {
           >
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
+              className="bg-primary hover:bg-primary/90 text-white text-lg px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all"
               onClick={() =>
                 document
                   .querySelector("#contact")

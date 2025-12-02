@@ -21,10 +21,8 @@ export default function Header() {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Blog", href: "#blog" },
-    { name: "FAQ", href: "#faq" },
+
+    ,
     { name: "Contact", href: "#contact" },
   ];
 
@@ -55,12 +53,12 @@ export default function Header() {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8 pr-10">
           {navLinks.map((link) => (
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
+              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors pr-6"
             >
               {link.name}
             </button>

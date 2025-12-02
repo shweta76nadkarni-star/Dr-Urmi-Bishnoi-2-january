@@ -5,10 +5,9 @@ import urmiPic from "@assets/urmi_pic_1764666975212.jpg";
 
 export default function About() {
   const qualifications = [
-    "Experience: 15+ Years in Clinical Psychology",
+    "Experience: 22+ Years in Clinical Psychology",
     "Strengths: Empathy, Non-judgmental approach",
     "Approach: Holistic & Evidence-based",
-    "Languages: English, Hindi",
   ];
 
   return (
@@ -52,7 +51,7 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">
-              Welcome to MindThera
+              About Us
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 font-heading">
               Transform Your{" "}

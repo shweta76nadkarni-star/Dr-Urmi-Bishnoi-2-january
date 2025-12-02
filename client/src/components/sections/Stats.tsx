@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { number: "15+", label: "Years Experience" },
+  { number: "22+", label: "Years Experience" },
   { number: "3200+", label: "Patients Healed" },
   { number: "20+", label: "Certifications" },
   { number: "100%", label: "Confidentiality" },
@@ -18,10 +18,18 @@ export default function Stats() {
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
+              transition={{
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 100,
+              }}
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2 font-heading">{stat.number}</div>
-              <div className="text-white/80 text-sm md:text-base font-medium tracking-wide uppercase">{stat.label}</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 font-heading">
+                {stat.number}
+              </div>
+              <div className="text-white/80 text-sm md:text-base font-medium tracking-wide uppercase">
+                {stat.label}
+              </div>
             </motion.div>
           ))}
         </div>
