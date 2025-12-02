@@ -1,0 +1,242 @@
+**"Create a fully responsive, modern, SEO-optimized psychologist website for Dr. Urmil Bishnoi based on the reference layout shown in the screenshot I provided. The design MUST follow the same structure, sections, and modern aesthetic as the reference website screenshot. Use my brand identity, colors, images, and content exactly as described below.
+
+🔹 BRANDING & COLORS
+
+Primary Color: #2E8B57 (Teal Green)
+Secondary Color: #FFFFFF (White)
+Background Accent: Use soft pastel greens & subtle gradients
+Neutral Typography Color: #333333
+
+Use smooth gradients and a minimal, calm UI throughout the site.
+
+🔹 ASSETS TO USE
+
+Logo: main_logo-removebg-preview.png
+
+Place in header (left) and footer (larger version).
+
+About Us Image: urmi pic.jpg
+
+Reference Layout Screenshot: screencapture-themewant-products-wordpress-mindthera.png
+
+Recreate the same layout, section order, structure, spacing, and content arrangement.
+
+🔹 HERO SECTION REQUIREMENTS
+
+Use a full-width background image suitable for psychology, calm nature, emotional healing, therapy, etc.
+
+Overlay with a soft green gradient.
+
+CTA button: Book Appointment (Teal Green).
+
+Clean minimalist typography.
+
+🔹 WEBSITE STRUCTURE (FOLLOW SAME ORDER AS THE SAMPLE)
+
+Create all these sections exactly like the screenshot:
+
+1️⃣ Header
+
+Logo left
+
+Navigation Menu: Home, About, Services, Conditions, Testimonials, Pricing, FAQ, Contact
+
+CTA Button: Book Appointment
+
+2️⃣ Hero Slider / Hero Banner
+
+Full-screen, calming background image
+
+Heading: “Begin Your Inner Peace Journey”
+
+Subheading about mental wellness
+
+Green CTA button
+
+3️⃣ About Section
+
+Use the image urmi pic.jpg
+
+Title: Transform Your Mental Health
+
+Include content from the project report:
+
+Experience
+
+Clinical strengths
+
+Approach
+
+Qualifications
+
+4️⃣ Testimonials Section
+
+Calm background
+
+1–3 testimonial cards styled like the sample
+
+5️⃣ Therapies & Treatments Section
+Include the following services (each with its own card):
+
+Hypnotherapy
+
+Anxiety Disorder Treatment
+
+Depression Therapy
+
+Suicidal Ideation Management
+
+PTSD Treatment
+
+6️⃣ Statistics Section
+Use counters like in the screenshot (e.g., experience years, clients healed, etc.)
+
+7️⃣ Team Section (But instead show Dr. Urmil only, with a professional bio)
+
+8️⃣ Pricing Section
+Create three pricing cards similar to the screenshot:
+
+Individual Therapy
+
+Couples Counseling
+
+Career Counseling
+
+9️⃣ FAQ Section
+Use dropdown accordion items based on the report content
+
+🔟 Contact Section
+
+Add clinic address
+
+Phone
+
+Email
+
+WhatsApp quick-chat button (link: https://wa.me/08042756155
+)
+
+Appointment CTA
+
+🔹 CONTENT SOURCE
+
+Use the complete content from the attached project report file:
+
+Name
+
+Qualifications
+
+Experience
+
+Specializations
+
+Services
+
+Ethical practice principles
+
+SEO keywords
+
+Clinic address
+
+Social links
+
+Professional descriptions
+
+
+🔹 SEO REQUIREMENTS
+
+Optimize the entire website for the following keywords:
+
+Best Psychologist in Jaipur
+
+Anxiety Counselling in Jaipur
+
+Depression Treatment Jaipur
+
+PTSD Therapy Jaipur
+
+Child Psychologist Jaipur
+
+Clinical Hypnotherapist Jaipur
+
+Use:
+
+Semantic HTML5
+
+Schema markup
+
+Meta tags for all pages
+
+ALT texts for all images
+
+Clean class naming
+
+🔹 PERFORMANCE REQUIREMENTS
+
+Fully responsive on all screen sizes
+
+Smooth animations
+
+Lightweight, clean code
+
+Fast loading
+
+Lazy loading on images
+
+🔹 DESIGN SYSTEM
+
+Typography:
+
+Headings: Poppins or Lato
+
+Body Text: Inter or Open Sans
+
+Rounded buttons
+
+Soft shadows
+
+Minimalist spacing like the reference layout
+
+🔹 EXTRA FEATURES
+
+Floating WhatsApp button
+
+Appointment form
+
+Sticky header
+
+Footer with:
+
+Social icons
+
+Clinic address
+
+Contact details
+
+Logo
+
+Navigation links
+
+Copyright
+
+🔹 FINAL OUTPUT
+
+Deliver a complete, production-ready website with:
+
+HTML
+
+CSS
+
+JavaScript
+
+Image assets integrated
+
+All sections fully styled following the reference website design
+
+Fully mobile-responsive
+
+SEO-optimized
+
+Fast and clean UI
+
+Make it visually identical in layout style to the screenshot I provided but adapted for Dr. Urmil Bishnoi’s branding, colors, and content."**
