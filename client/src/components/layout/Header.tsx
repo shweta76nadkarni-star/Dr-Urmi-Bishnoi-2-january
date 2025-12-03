@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@assets/main_logo-removebg-preview_1764666984089.png";
@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,61 +19,57 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About  Me", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
-
-  const scrollToSection = (id: string) => {
-    setIsOpen(false);
-    const element = document.querySelector(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-1",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-3"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <div
-          className="flex items-center gap-2 cursor-pointer"
-          onClick={() => scrollToSection("#home")}
-        >
-          <img
-            src={logo}
-            alt="Dr. Urmil Bishnoi Logo"
-            className="h-16 w-auto object-contain"
-          />
-        </div>
+        <Link href="/">
+          <div className="flex items-center gap-2 cursor-pointer">
+            <img
+              src={logo}
+              alt="Dr. Urmil Bishnoi Logo"
+              className="h-16 w-auto object-contain"
+            />
+          </div>
+        </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 pr-10">
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => scrollToSection(link.href)}
-              className="text-lg font-medium text-gray-900 hover:text-primary transition-colors pr-6"
-            >
-              {link.name}
-            </button>
+            <Link key={link.name} href={link.href}>
+              <a
+                className={cn(
+                  "text-sm font-semibold transition-colors",
+                  location === link.href ? "text-primary" : "text-gray-900 hover:text-primary"
+                )}
+              >
+                {link.name}
+              </a>
+            </Link>
           ))}
-          <Button
-            className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 py-2"
-            onClick={() => scrollToSection("#contact")}
-          >
-            Book Appointment
-          </Button>
+          <Link href="/contact">
+             <Button
+              className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 font-semibold"
+            >
+              Book Appointment
+            </Button>
+          </Link>
         </nav>
 
         {/* Mobile Menu Toggle */}
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? (
-            <X className="h-6 w-6 text-gray-800 pr-2" />
+            <X className="h-6 w-6 text-gray-800" />
           ) : (
             <Menu className="h-6 w-6 text-gray-800" />
           )}
@@ -83,20 +80,23 @@ export default function Header() {
       {isOpen && (
         <div className="absolute top-full left-0 right-0 bg-white shadow-lg p-4 md:hidden flex flex-col gap-4 border-t">
           {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => scrollToSection(link.href)}
-              className="text-left text-base font-medium text-gray-700 hover:text-primary py-2"
-            >
-              {link.name}
-            </button>
+            <Link key={link.name} href={link.href}>
+               <a
+                className="text-left text-base font-semibold text-gray-700 hover:text-primary py-2 block"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </a>
+            </Link>
           ))}
-          <Button
-            className="w-full bg-primary hover:bg-primary/90 text-white rounded-full"
-            onClick={() => scrollToSection("#contact")}
-          >
-            Book Appointment
-          </Button>
+          <Link href="/contact">
+             <Button
+              className="w-full bg-primary hover:bg-primary/90 text-white rounded-full font-semibold"
+              onClick={() => setIsOpen(false)}
+            >
+              Book Appointment
+            </Button>
+          </Link>
         </div>
       )}
     </header>

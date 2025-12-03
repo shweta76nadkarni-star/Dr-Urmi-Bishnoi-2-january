@@ -9,6 +9,7 @@ import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
 import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
+import Gallery from "@/components/sections/Gallery";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         <Testimonials />
         <Pricing />
         <FAQ />
+        <Gallery />
         <Blog />
         <Contact />
       </main>
