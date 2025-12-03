@@ -19,10 +19,8 @@ export default function Header() {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
+    { name: "About  Me", href: "#about" },
     { name: "Services", href: "#services" },
-
-    ,
     { name: "Contact", href: "#contact" },
   ];
 
@@ -58,13 +56,13 @@ export default function Header() {
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors pr-6"
+              className="text-lg font-medium text-gray-900 hover:text-primary transition-colors pr-6"
             >
               {link.name}
             </button>
           ))}
           <Button
-            className="bg-primary hover:bg-primary/90 text-white rounded-full px-6"
+            className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 py-2"
             onClick={() => scrollToSection("#contact")}
           >
             Book Appointment
@@ -74,7 +72,7 @@ export default function Header() {
         {/* Mobile Menu Toggle */}
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? (
-            <X className="h-6 w-6 text-gray-800" />
+            <X className="h-6 w-6 text-gray-800 pr-2" />
           ) : (
             <Menu className="h-6 w-6 text-gray-800" />
           )}

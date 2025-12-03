@@ -29,16 +29,14 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-block mb-4 text-lg md:text-xl font-medium tracking-wide text-white/90 font-heading">
-          
-          </span>
+          <span className="inline-block mb-4 text-lg md:text-xl font-medium tracking-wide text-white/90 font-heading"></span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-lg font-heading">
             Begin Your <br />
-            <span className="italic font-serif text-secondary">
+            <span className="italic font-serif text-secondary text-6xl w-80">
               Inner Peace Journey
             </span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-2xl md:text-2xl mb-8 text-white/90 leading-relaxed">
             Embark on a journey of self-discovery and emotional healing with
             expert therapy. Dr. Urmil Bishnoi provides a safe space for your
             mental wellness.

@@ -15,26 +15,26 @@ const testimonials = [
     name: "Priya Sharma",
     role: "Software Engineer",
     text: "Dr. Urmil's guidance has been transformative. Her calm demeanor and insightful approach helped me navigate through my anxiety with confidence.",
-    rating: 5
+    rating: 5,
   },
   {
     name: "Rahul Verma",
     role: "Business Owner",
     text: "I was skeptical about therapy, but Dr. Bishnoi changed my perspective. The hypnotherapy sessions were incredibly effective for my stress management.",
-    rating: 5
+    rating: 5,
   },
   {
     name: "Anjali Gupta",
     role: "Teacher",
     text: "A truly compassionate professional. She creates a safe space where I felt heard and understood. Highly recommend her services to anyone seeking peace.",
-    rating: 5
+    rating: 5,
   },
   {
     name: "Vikram Singh",
     role: "Architect",
     text: "I found clarity and direction through my sessions. The practical strategies provided have helped me balance my work and personal life beautifully.",
-    rating: 5
-  }
+    rating: 5,
+  },
 ];
 
 export default function Testimonials() {
@@ -46,7 +46,8 @@ export default function Testimonials() {
             Testimonials
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 font-heading">
-            What Our <span className="text-primary italic font-serif">Clients Say</span>
+            What Our{" "}
+            <span className="text-primary italic font-serif">Clients Say</span>
           </h2>
         </div>
 
@@ -60,20 +61,28 @@ export default function Testimonials() {
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {testimonials.map((item, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem
+                  key={index}
+                  className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
+                >
                   <div className="p-1 h-full">
                     <Card className="h-full border-none shadow-sm bg-white relative overflow-visible">
-                      <div className="absolute -top-4 left-8 bg-primary text-white p-2 rounded-full shadow-md">
+                      <div className="absolute -top-0 left-8 bg-primary text-white p-2 rounded-full shadow-md">
                         <Quote className="h-5 w-5 fill-current" />
                       </div>
                       <CardContent className="pt-10 pb-8 px-6 flex flex-col h-full justify-between">
                         <div>
                           <div className="flex mb-4">
                             {[...Array(item.rating)].map((_, i) => (
-                              <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                              <Star
+                                key={i}
+                                className="h-4 w-4 text-yellow-400 fill-current"
+                              />
                             ))}
                           </div>
-                          <p className="text-gray-600 italic mb-6 leading-relaxed">"{item.text}"</p>
+                          <p className="text-gray-600 italic mb-6 leading-relaxed">
+                            "{item.text}"
+                          </p>
                         </div>
                         <div className="flex items-center gap-4 mt-auto">
                           <Avatar>
@@ -82,7 +91,9 @@ export default function Testimonials() {
                             </AvatarFallback>
                           </Avatar>
                           <div>
-                            <h4 className="font-bold text-gray-900 text-sm">{item.name}</h4>
+                            <h4 className="font-bold text-gray-900 text-sm">
+                              {item.name}
+                            </h4>
                             <p className="text-xs text-gray-500">{item.role}</p>
                           </div>
                         </div>

@@ -5,9 +5,10 @@ import urmiPic from "@assets/urmi_pic_1764666975212.jpg";
 
 export default function About() {
   const qualifications = [
-    "Experience: 22+ Years in Clinical Psychology",
-    "Strengths: Empathy, Non-judgmental approach",
-    "Approach: Holistic & Evidence-based",
+    " (Ph.D & M.Phil in Psychology ) ",
+    " Empathetic, Supportive & Non-judgmental",
+    " Holistic, Client-Centered & Result-Oriented",
+    " Extensive background in clinical psychology",
   ];
 
   return (
@@ -31,7 +32,7 @@ export default function About() {
             <div className="absolute bottom-8 right-4 lg:-right-8 bg-white p-6 rounded-xl shadow-lg max-w-xs hidden md:block border border-gray-100">
               <div className="flex items-center gap-4 mb-2">
                 <div className="bg-primary/10 p-2 rounded-full text-primary font-bold text-xl">
-                  15+
+                  22+
                 </div>
                 <div className="text-sm font-semibold text-gray-800">
                   Years of Experience
@@ -56,7 +57,7 @@ export default function About() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 font-heading">
               Transform Your{" "}
               <span className="text-primary italic font-serif">
-                Mental Health
+                Mental Health{" "}
               </span>
             </h2>
             <p className="text-gray-600 mb-6 leading-relaxed text-lg">
@@ -89,7 +90,7 @@ export default function About() {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              More About Dr. Urmil
+              More About Dr. Urmil Bishnoi
             </Button>
           </motion.div>
         </div>

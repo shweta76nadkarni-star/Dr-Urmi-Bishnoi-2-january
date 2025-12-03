@@ -6,7 +6,14 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
@@ -31,14 +38,15 @@ export default function Contact() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     toast({
       title: "Request Sent",
-      description: "Thank you! We will contact you shortly to confirm your appointment.",
+      description:
+        "Thank you! We will contact you shortly to confirm your appointment.",
     });
     form.reset();
     console.log(values);
   }
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-10 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -51,10 +59,14 @@ export default function Contact() {
               Get In Touch
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 font-heading">
-              Contact & <span className="text-primary italic font-serif">Appointments</span>
+              Contact &{" "}
+              <span className="text-primary italic font-serif">
+                Appointments
+              </span>
             </h2>
             <p className="text-gray-600 mb-8 text-lg">
-              Take the first step towards healing. Reach out to schedule a consultation or ask any questions.
+              Take the first step towards healing. Reach out to schedule a
+              consultation or ask any questions.
             </p>
 
             <div className="space-y-8">
@@ -63,11 +75,16 @@ export default function Contact() {
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Clinic Address</h4>
-                  <p className="text-gray-600">Jaipur, Rajasthan, India</p>
+                  <h4 className="font-bold text-gray-900 mb-1">
+                    Clinic Address
+                  </h4>
+                  <p className="text-gray-600">
+                    Plot No.125, Sukhija Vihar, Kanak Vrindavan, Maharana Pratap
+                    Road, Vaishali Nagar, Jaipur – Rajasthan 302021
+                  </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4">
                 <div className="bg-primary/10 p-3 rounded-full text-primary">
                   <Phone className="h-6 w-6" />
@@ -84,7 +101,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-900 mb-1">Email</h4>
-                  <p className="text-gray-600">contact@drurmilbishnoi.com</p>
+                  <p className="text-gray-600">urmi.29.bishnoi@gmail.com </p>
                 </div>
               </div>
             </div>
@@ -98,9 +115,14 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100"
           >
-            <h3 className="text-2xl font-bold mb-6 text-gray-800">Book an Appointment</h3>
+            <h3 className="text-2xl font-bold mb-6 text-gray-800">
+              Book an Appointment
+            </h3>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-4"
+              >
                 <FormField
                   control={form.control}
                   name="name"
@@ -108,7 +130,11 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Full Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="John Doe" {...field} className="bg-white" />
+                        <Input
+                          placeholder="John Doe"
+                          {...field}
+                          className="bg-white"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -122,7 +148,11 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="john@example.com" {...field} className="bg-white" />
+                          <Input
+                            placeholder="john@example.com"
+                            {...field}
+                            className="bg-white"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -135,7 +165,11 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Phone</FormLabel>
                         <FormControl>
-                          <Input placeholder="+91 9876543210" {...field} className="bg-white" />
+                          <Input
+                            placeholder="+91 9876543210"
+                            {...field}
+                            className="bg-white"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -149,13 +183,20 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Message (Optional)</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="How can we help you?" {...field} className="bg-white min-h-[100px]" />
+                        <Textarea
+                          placeholder="How can we help you?"
+                          {...field}
+                          className="bg-white min-h-[100px]"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg rounded-lg mt-2">
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg rounded-lg mt-2"
+                >
                   Confirm Booking
                 </Button>
               </form>
