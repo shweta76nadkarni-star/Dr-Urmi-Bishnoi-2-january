@@ -24,11 +24,14 @@ export default function Gallery() {
     <section className="py-16 bg-gray-50 border-t border-gray-100">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-10">
-           <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">
+          {/* <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">
             Our Clinic
-          </span>
+          </span> */}
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 font-heading">
-            A Glimpse of <span className="text-primary italic font-serif">MindThera</span>
+            A Glimpse of{" "}
+            <span className="text-primary italic font-serif">
+              Dr. Urmil Bishnoi
+            </span>
           </h2>
         </div>
 
@@ -42,16 +45,19 @@ export default function Gallery() {
           >
             <CarouselContent className="-ml-4">
               {galleryImages.map((image, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/3 lg:basis-1/4">
+                <CarouselItem
+                  key={index}
+                  className="pl-4 md:basis-1/3 lg:basis-1/4"
+                >
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Card className="border-none shadow-sm overflow-hidden rounded-xl">
                       <CardContent className="p-0 aspect-square">
-                        <img 
-                          src={image} 
-                          alt={`Clinic Gallery ${index + 1}`} 
+                        <img
+                          src={image}
+                          alt={`Clinic Gallery ${index + 1}`}
                           className="w-full h-full object-cover hover:opacity-90 transition-opacity"
                         />
                       </CardContent>

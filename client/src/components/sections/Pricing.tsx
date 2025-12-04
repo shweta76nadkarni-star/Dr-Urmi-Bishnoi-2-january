@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardFooter,
+} from "@/components/ui/card";
 
 const plans = [
   {
@@ -13,8 +19,8 @@ const plans = [
       "45-60 minute session",
       "Anxiety & Depression focus",
       "Confidential environment",
-      "Online or In-person"
-    ]
+      "Online or In-person",
+    ],
   },
   {
     title: "Couples Counseling",
@@ -26,8 +32,8 @@ const plans = [
       "Conflict resolution",
       "Communication skills",
       "90 minute session",
-      "Joint exercises"
-    ]
+      "Joint exercises",
+    ],
   },
   {
     title: "Career Counseling",
@@ -38,9 +44,9 @@ const plans = [
       "Career path planning",
       "Stress management",
       "Goal setting",
-      "Follow-up support"
-    ]
-  }
+      "Follow-up support",
+    ],
+  },
 ];
 
 export default function Pricing() {
@@ -48,8 +54,8 @@ export default function Pricing() {
     <section id="pricing" className="py-20 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-bl-full" />
-         <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-secondary/30 rounded-tr-full" />
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-bl-full" />
+        <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-secondary/30 rounded-tr-full" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -58,10 +64,12 @@ export default function Pricing() {
             Pricing Plans
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 font-heading">
-            Affordable <span className="text-primary italic font-serif">Mental Care</span>
+            Affordable{" "}
+            <span className="text-primary italic font-serif">Mental Care</span>
           </h2>
           <p className="text-gray-600">
-            Transparent pricing for professional psychological services. Choose the plan that fits your journey.
+            Transparent pricing for professional psychological services. Choose
+            the plan that fits your journey.
           </p>
         </div>
 
@@ -74,23 +82,32 @@ export default function Pricing() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className={`h-full border transition-all duration-300 hover:shadow-xl ${plan.featured ? 'border-primary shadow-lg scale-105 z-10 relative' : 'border-gray-100 shadow-sm hover:-translate-y-1'}`}>
+              <Card
+                className={`h-full border transition-all duration-300 hover:shadow-xl ${plan.featured ? "border-primary shadow-lg scale-105 z-10 relative" : "border-gray-100 shadow-sm hover:-translate-y-1"}`}
+              >
                 {plan.featured && (
                   <div className="bg-primary text-white text-xs font-bold uppercase text-center py-1.5 absolute top-0 left-0 w-full">
                     Recommended
                   </div>
                 )}
-                <CardHeader className={`${plan.featured ? 'pt-10' : 'pt-6'} text-center pb-2`}>
-                  <CardTitle className="text-xl font-bold text-gray-900">{plan.title}</CardTitle>
-                  <div className="mt-4 flex items-baseline justify-center">
+                <CardHeader
+                  className={`${plan.featured ? "pt-10" : "pt-6"} text-center pb-2`}
+                >
+                  <CardTitle className="text-xl font-bold text-gray-900">
+                    {plan.title}
+                  </CardTitle>
+                  {/* <div className="mt-4 flex items-baseline justify-center">
                     <span className="text-4xl font-bold text-primary">{plan.price}</span>
                     <span className="text-gray-500 ml-1 text-sm">{plan.period}</span>
-                  </div>
+                  </div> */}
                 </CardHeader>
                 <CardContent className="pt-6">
                   <ul className="space-y-4">
                     {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm text-gray-600">
+                      <li
+                        key={i}
+                        className="flex items-center gap-3 text-sm text-gray-600"
+                      >
                         <Check className="h-4 w-4 text-primary shrink-0" />
                         {feature}
                       </li>
@@ -98,9 +115,13 @@ export default function Pricing() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button 
-                    className={`w-full rounded-full ${plan.featured ? 'bg-primary hover:bg-primary/90' : 'bg-white border-2 border-primary text-primary hover:bg-primary/5'}`}
-                    onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                  <Button
+                    className={`w-full rounded-full ${plan.featured ? "bg-primary hover:bg-primary/90" : "bg-white border-2 border-primary text-primary hover:bg-primary/5"}`}
+                    onClick={() =>
+                      document
+                        .querySelector("#contact")
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
                   >
                     Book Appointment
                   </Button>

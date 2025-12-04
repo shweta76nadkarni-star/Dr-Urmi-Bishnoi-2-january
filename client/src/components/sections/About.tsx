@@ -5,7 +5,7 @@ import urmiPic from "@assets/urmi_pic_1764666975212.jpg";
 
 export default function About() {
   const qualifications = [
-    " (Ph.D & M.Phil in Psychology ) ",
+    " Ph.D & M.Phil in Psychology  ",
     " Empathetic, Supportive & Non-judgmental",
     " Holistic, Client-Centered & Result-Oriented",
     " Extensive background in clinical psychology",
