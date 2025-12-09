@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import {
   Card,
   CardContent,
@@ -16,87 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-// Mock data for blog posts
-const blogPosts = [
-  {
-    id: 1,
-    title: "Understanding High-Functioning Anxiety",
-    excerpt:
-      "Learn to recognize the subtle signs of high-functioning anxiety and discover effective coping strategies.",
-    date: "October 15, 2023",
-    readTime: "5 min read",
-    category: "Anxiety",
-    image:
-      "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    title: "The Science Behind Hypnotherapy",
-    excerpt:
-      "Demystifying the practice of hypnotherapy and exploring how it accesses the subconscious to promote healing.",
-    date: "September 28, 2023",
-    readTime: "7 min read",
-    category: "Hypnotherapy",
-    image:
-      "https://t4.ftcdn.net/jpg/03/39/11/57/360_F_339115718_4sqfgHxMdvtTYjzlCCdQtz2wh7jr3gVy.jpg",
-  },
-  {
-    id: 3,
-    title: "Rebuilding Trust in Relationships",
-    excerpt:
-      "Practical steps for couples to heal from conflict and rebuild a stronger foundation of trust and intimacy.",
-    date: "September 10, 2023",
-    readTime: "6 min read",
-    category: "Relationships",
-    image:
-      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    title: "Mindfulness Techniques for Daily Stress",
-    excerpt:
-      "Simple, actionable mindfulness exercises you can practice anywhere to instantly reduce stress levels.",
-    date: "August 22, 2023",
-    readTime: "4 min read",
-    category: "Wellness",
-    image:
-      "https://www.shutterstock.com/image-photo/health-wellness-concept-glowing-icons-260nw-2623338321.jpg",
-  },
-  {
-    id: 5,
-    title: "Recognizing Signs of Depression in Teens",
-    excerpt:
-      "A guide for parents to understand the early warning signs of depression in adolescents and how to help.",
-    date: "August 05, 2023",
-    readTime: "8 min read",
-    category: "Child Psychology",
-    image:
-      "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    id: 6,
-    title: "Navigating PTSD Triggers safely",
-    excerpt:
-      "Strategies for managing PTSD triggers and grounding yourself when past trauma resurfaces.",
-    date: "July 18, 2023",
-    readTime: "6 min read",
-    category: "Trauma",
-    image:
-      "https://media.istockphoto.com/id/1197633305/photo/ptsd-post-traumatic-stress-written-on-the-puzzle.jpg?s=612x612&w=0&k=20&c=7jFXgnoepFXZDBgpkO0_L_EAEJQaOg7VkEDIDKL3fVs=",
-  },
-  {
-    id: 7,
-    title: "The Importance of Self-Care",
-    excerpt:
-      "Why self-care is not selfish: Understanding the vital role of self-preservation in mental health.",
-    date: "July 01, 2023",
-    readTime: "5 min read",
-    category: "Self Care",
-    image:
-      "https://images.unsplash.com/photo-1515847049296-a281d6401047?q=80&w=2070&auto=format&fit=crop",
-  },
-];
+import { blogPosts } from "@/lib/data";
 
 function BlogCard({ post }: { post: (typeof blogPosts)[0] }) {
   return (
@@ -134,13 +55,15 @@ function BlogCard({ post }: { post: (typeof blogPosts)[0] }) {
         </p>
       </CardContent>
       <CardFooter className="pt-0 mt-auto">
-        <Button
-          variant="ghost"
-          className="p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent font-semibold group/btn"
-        >
-          Read Article{" "}
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-        </Button>
+        <Link href={`/blog/${post.id}`}>
+          <Button
+            variant="ghost"
+            className="p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent font-semibold group/btn cursor-pointer"
+          >
+            Read Article{" "}
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

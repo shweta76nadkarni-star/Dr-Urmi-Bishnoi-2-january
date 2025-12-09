@@ -14,12 +14,21 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { services } from "@/lib/data";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email." }),
   phone: z.string().min(10, { message: "Please enter a valid phone number." }),
+  service: z.string().min(1, { message: "Please select a service." }),
   message: z.string().optional(),
 });
 
@@ -31,6 +40,7 @@ export default function Contact() {
       name: "",
       email: "",
       phone: "",
+      service: "",
       message: "",
     },
   });
@@ -39,10 +49,16 @@ export default function Contact() {
     toast({
       title: "Request Sent",
       description:
-        "Thank you! We will contact you shortly to confirm your appointment.",
+        "Thank you! Redirecting to WhatsApp to confirm your appointment.",
     });
+
+    const message = `*New Appointment Request*\n\n*Name:* ${values.name}\n*Email:* ${values.email}\n*Phone:* ${values.phone}\n*Service:* ${values.service}\n*Message:* ${values.message || "N/A"}`;
+    const whatsappUrl = `https://wa.me/918042756155?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(whatsappUrl, "_blank");
     form.reset();
-    console.log(values);
   }
 
   return (
@@ -176,6 +192,32 @@ export default function Contact() {
                     )}
                   />
                 </div>
+                
+                <FormField
+                  control={form.control}
+                  name="service"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Service</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="bg-white">
+                            <SelectValue placeholder="Select a service" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {services.map((service, index) => (
+                            <SelectItem key={index} value={service.title}>
+                              {service.title}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={form.control}
                   name="message"
@@ -195,7 +237,7 @@ export default function Contact() {
                 />
                 <Button
                   type="submit"
-                  className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg rounded-lg mt-2"
+                  className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg rounded-lg mt-2 cursor-pointer"
                 >
                   Confirm Booking
                 </Button>

@@ -1,39 +1,6 @@
 import { motion } from "framer-motion";
-import { Brain, HeartHandshake, Briefcase, Activity, UserPlus, Sparkles } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-
-const services = [
-  {
-    title: "Hypnotherapy",
-    description: "Access the subconscious mind to foster positive change and overcome deep-seated issues.",
-    icon: Sparkles,
-  },
-  {
-    title: "Anxiety Disorder",
-    description: "Effective strategies to manage and reduce anxiety, restoring calm and control to your life.",
-    icon: Activity,
-  },
-  {
-    title: "Depression Therapy",
-    description: "Compassionate support and evidence-based techniques to navigate through depression.",
-    icon: Brain,
-  },
-  {
-    title: "Suicidal Ideation",
-    description: "Urgent, care-focused intervention to manage crisis and build hope for the future.",
-    icon: HeartHandshake,
-  },
-  {
-    title: "PTSD Treatment",
-    description: "Specialized trauma therapy to heal from past experiences and reclaim your peace.",
-    icon: UserPlus, // Representing support
-  },
-  {
-    title: "Career Counseling",
-    description: "Guidance to align your career path with your personal strengths and life goals.",
-    icon: Briefcase,
-  },
-];
+import { services } from "@/lib/data";
 
 export default function Services() {
   return (
