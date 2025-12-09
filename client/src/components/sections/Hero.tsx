@@ -54,7 +54,7 @@ export default function Hero() {
           >
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
+              className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all"
               onClick={handleGetStarted}
             >
               Get Started Now

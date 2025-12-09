@@ -8,16 +8,29 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 
-import img1 from "@assets/stock_images/therapy_clinic_inter_8b043e20.jpg";
-import img2 from "@assets/stock_images/therapy_clinic_inter_ccfcb5bf.jpg";
-import img3 from "@assets/stock_images/therapy_clinic_inter_778cf6c0.jpg";
-import img4 from "@assets/stock_images/therapy_clinic_inter_be952702.jpg";
-import img5 from "@assets/stock_images/therapy_clinic_inter_67adc1f3.jpg";
-import img6 from "@assets/stock_images/therapy_clinic_inter_0b19fbd0.jpg";
-import img7 from "@assets/stock_images/therapy_clinic_inter_720b7ab9.jpg";
-import img8 from "@assets/stock_images/therapy_clinic_inter_d9cb26e8.jpg";
+import img1 from "@assets/stock_images/urmi_one.avif";
+import img2 from "@assets/stock_images/urmi_two.avif";
+import img3 from "@assets/stock_images/urmi_three.avif";
+import img4 from "@assets/stock_images/urmi_four.avif";
+import img5 from "@assets/stock_images/urmi_five.avif";
+import img6 from "@assets/stock_images/urmi_six.avif";
+import img7 from "@assets/stock_images/urmi_seven.avif";
+import img8 from "@assets/stock_images/urmi_eight.avif";
+import img9 from "@assets/stock_images/urmi_nine.avif";
+import img10 from "@assets/stock_images/urmi_ten.avif";
 
-const galleryImages = [img1, img2, img3, img4, img5, img6, img7, img8];
+const galleryImages = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+];
 
 export default function Gallery() {
   return (

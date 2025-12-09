@@ -39,7 +39,7 @@ const blogPosts = [
     readTime: "7 min read",
     category: "Hypnotherapy",
     image:
-      "https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=2070&auto=format&fit=crop",
+      "https://t4.ftcdn.net/jpg/03/39/11/57/360_F_339115718_4sqfgHxMdvtTYjzlCCdQtz2wh7jr3gVy.jpg",
   },
   {
     id: 3,
@@ -61,7 +61,7 @@ const blogPosts = [
     readTime: "4 min read",
     category: "Wellness",
     image:
-      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop",
+      "https://www.shutterstock.com/image-photo/health-wellness-concept-glowing-icons-260nw-2623338321.jpg",
   },
   {
     id: 5,
@@ -83,7 +83,7 @@ const blogPosts = [
     readTime: "6 min read",
     category: "Trauma",
     image:
-      "https://images.unsplash.com/photo-1527137342181-191eee16f952?q=80&w=2070&auto=format&fit=crop",
+      "https://media.istockphoto.com/id/1197633305/photo/ptsd-post-traumatic-stress-written-on-the-puzzle.jpg?s=612x612&w=0&k=20&c=7jFXgnoepFXZDBgpkO0_L_EAEJQaOg7VkEDIDKL3fVs=",
   },
   {
     id: 7,

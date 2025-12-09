@@ -1,4 +1,4 @@
-import logo from "@assets/main_logo-removebg-preview_1764666984089.png";
+import logo from "@assets/main_urmi_logo.png";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
@@ -44,16 +44,13 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <a
-                  href="#home"
-                  className="hover:text-primary transition-colors"
-                >
+                <a href="/" className="hover:text-primary transition-colors">
                   Home
                 </a>
               </li>
               <li>
                 <a
-                  href="#about"
+                  href="/about"
                   className="hover:text-primary transition-colors"
                 >
                   About Dr. Urmil
@@ -61,7 +58,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/services"
                   className="hover:text-primary transition-colors"
                 >
                   Services
@@ -69,23 +66,23 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#blog"
+                  href="/blog"
                   className="hover:text-primary transition-colors"
                 >
                   Blog
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
-                  href="#testimonials"
+                  href="/testimonials"
                   className="hover:text-primary transition-colors"
                 >
                   Testimonials
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="hover:text-primary transition-colors"
                 >
                   Contact Us
@@ -99,27 +96,42 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-6">Services</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a
+                  href="/services"
+                  className="hover:text-primary transition-colors"
+                >
                   Hypnotherapy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a
+                  href="/services"
+                  className="hover:text-primary transition-colors"
+                >
                   Anxiety Treatment
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a
+                  href="/services"
+                  className="hover:text-primary transition-colors"
+                >
                   Depression Therapy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a
+                  href="/services"
+                  className="hover:text-primary transition-colors"
+                >
                   Couples Counseling
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a
+                  href="/services"
+                  className="hover:text-primary transition-colors"
+                >
                   Career Counseling
                 </a>
               </li>
@@ -131,8 +143,9 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-6">Contact</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex gap-3">
-                <span className="text-primary">Address:</span> Maharana Pratap
-                Road, Vaishali Nagar, Jaipur – Rajasthan 302021
+                <span className="text-primary">Address:</span> Plot No.125,
+                Sukhija Vihar, Kanak Vrindavan, Maharana Pratap Road, Vaishali
+                Nagar, Jaipur – Rajasthan 302021
               </li>
               <li className="flex gap-3">
                 <span className="text-primary">Phone:</span> +91 8042756155
