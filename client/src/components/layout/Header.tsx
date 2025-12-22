@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@assets/main_urmi_logo.png";
+import logo from "@assets/New_logo_of_Dr_Urmil_Bishnoi-removebg-preview (1).png";
 import { cn } from "@/lib/utils";
 
 export default function Header() {
@@ -29,16 +29,16 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-3",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-2",
       )}
     >
-      <div className="container mx-auto px-6 md:px-6 flex items-center justify-between">
+      <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
         <Link href="/">
           <div className="flex items-center gap-2 cursor-pointer">
             <img
               src={logo}
               alt="Dr. Urmil Bishnoi Logo"
-              className="h-19 w-auto object-contain"
+              className="h-17 w-auto object-contain"
             />
           </div>
         </Link>

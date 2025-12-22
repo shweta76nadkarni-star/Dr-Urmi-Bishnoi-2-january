@@ -53,7 +53,7 @@ export default function Contact() {
     });
 
     const message = `*New Appointment Request*\n\n*Name:* ${values.name}\n*Email:* ${values.email}\n*Phone:* ${values.phone}\n*Service:* ${values.service}\n*Message:* ${values.message || "N/A"}`;
-    const whatsappUrl = `https://wa.me/918042756155?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/+918042756155?text=${encodeURIComponent(
       message
     )}`;
 

@@ -14,7 +14,15 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { services } from "@/lib/data";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
@@ -23,6 +31,7 @@ const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email." }),
   phone: z.string().min(10, { message: "Please enter a valid phone number." }),
+  service: z.string().min(1, { message: "Please select a service." }),
   message: z.string().optional(),
 });
 
@@ -34,22 +43,22 @@ export default function ContactPage() {
       name: "",
       email: "",
       phone: "",
+      service: "",
       message: "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     const message = `Hello Dr. Urmil, my name is ${values.name}. I would like to book an appointment. Phone: ${values.phone}. Email: ${values.email}. ${values.message ? `Message: ${values.message}` : ""}`;
-    const whatsappUrl = `https://wa.me/918042756155?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/+918042756155?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
 
     toast({
-      title: "Opening WhatsApp",
-      description: "Redirecting you to WhatsApp to complete your booking.",
+      title: "Request Sent",
+      description:
+        "Thank you! Redirecting to WhatsApp to confirm your appointment.",
     });
-    form.reset();
   }
-
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary/20">
       <Header />
@@ -166,6 +175,7 @@ export default function ContactPage() {
                           </FormItem>
                         )}
                       />
+
                       <FormField
                         control={form.control}
                         name="phone"
@@ -184,6 +194,34 @@ export default function ContactPage() {
                         )}
                       />
                     </div>
+
+                    <FormField
+                      control={form.control}
+                      name="service"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Service</FormLabel>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger className="bg-white">
+                                <SelectValue placeholder="Select a service" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {services.map((service, index) => (
+                                <SelectItem key={index} value={service.title}>
+                                  {service.title}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                     <FormField
                       control={form.control}
                       name="message"
