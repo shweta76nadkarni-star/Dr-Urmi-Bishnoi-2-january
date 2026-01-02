@@ -7,7 +7,7 @@ import { memo } from "react";
 
 const Hero = memo(function Hero() {
   const handleGetStarted = () => {
-    window.open("https://wa.me/918042756155", "_blank");
+    window.open("https://wa.me/+917014086770", "_blank");
   };
 
   return (
@@ -34,7 +34,10 @@ const Hero = memo(function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight drop-shadow-lg font-heading" data-testid="heading-hero">
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight drop-shadow-lg font-heading"
+            data-testid="heading-hero"
+          >
             Best Psychologist in <span className="text-secondary">Jaipur</span>
             <br className="hidden sm:block" />
             <span className="block sm:inline"> </span>
@@ -43,7 +46,9 @@ const Hero = memo(function Hero() {
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90 leading-relaxed px-2">
-            Begin your healing with the best psychological counseling in Jaipur. Dr. Urmil Bishnoi provides expert therapy for anxiety, depression, and mental wellness.
+            Begin your healing with the best psychological counseling in Jaipur.
+            Dr. Urmil Bishnoi provides expert therapy for anxiety, depression,
+            and mental wellness.
           </p>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -60,7 +65,7 @@ const Hero = memo(function Hero() {
                 Book Appointment
               </Button>
             </Link>
-            <a href="tel:+918042756155" className="w-full sm:w-auto">
+            <a href="tel:+917014086770" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"

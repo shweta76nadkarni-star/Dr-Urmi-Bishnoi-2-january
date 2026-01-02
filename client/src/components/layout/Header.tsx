@@ -44,13 +44,13 @@ export default function Header() {
       )}
       data-testid="header"
     >
-      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
         <Link href="/">
-          <div className="flex items-center gap-2 cursor-pointer" data-testid="link-home-logo">
+          <div className="flex items-center gap-2 cursor-pointer shrink-0" data-testid="link-home-logo">
             <img
               src={logo}
               alt="Best Psychologist in Jaipur - Dr. Urmil Bishnoi"
-              className="h-14 sm:h-16 w-auto object-contain"
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain max-w-[180px] sm:max-w-none"
             />
           </div>
         </Link>
@@ -79,16 +79,16 @@ export default function Header() {
         </nav>
 
         <button 
-          className="lg:hidden p-3 -mr-2 min-w-[48px] min-h-[48px] flex items-center justify-center" 
+          className="lg:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center bg-primary/10 rounded-lg shrink-0" 
           onClick={() => setIsOpen(!isOpen)}
           data-testid="button-mobile-menu"
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
           {isOpen ? (
-            <X className="h-6 w-6 text-gray-800" />
+            <X className="h-6 w-6 text-primary" />
           ) : (
-            <Menu className="h-6 w-6 text-gray-800" />
+            <Menu className="h-6 w-6 text-primary" />
           )}
         </button>
       </div>

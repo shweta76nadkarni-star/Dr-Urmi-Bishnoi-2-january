@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,7 +32,7 @@ const formSchema = z.object({
   message: z.string().optional(),
 });
 
-const Contact = memo(function Contact() {
+export default function Contact() {
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -54,8 +53,8 @@ const Contact = memo(function Contact() {
     });
 
     const message = `*New Appointment Request*\n\n*Name:* ${values.name}\n*Email:* ${values.email}\n*Phone:* ${values.phone}\n*Service:* ${values.service}\n*Message:* ${values.message || "N/A"}`;
-    const whatsappUrl = `https://wa.me/+918042756155?text=${encodeURIComponent(
-      message
+    const whatsappUrl = `https://wa.me/+917014086770?text=${encodeURIComponent(
+      message,
     )}`;
 
     window.open(whatsappUrl, "_blank");
@@ -63,7 +62,11 @@ const Contact = memo(function Contact() {
   }
 
   return (
-    <section id="contact" className="py-12 sm:py-16 bg-white" data-testid="section-contact">
+    <section
+      id="contact"
+      className="py-12 sm:py-16 bg-white"
+      data-testid="section-contact"
+    >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           <motion.div
@@ -96,28 +99,42 @@ const Contact = memo(function Contact() {
                   </h4>
                   <p className="text-gray-600 text-sm sm:text-base">
                     Plot No.125, Sukhija Vihar, Kanak Vrindavan, Maharana Pratap
-                    Road, Vaishali Nagar, Jaipur – 302021
+                    Road, Vaishali Nagar, Jaipur – Rajasthan 302021
                   </p>
                 </div>
               </div>
 
-              <a href="tel:+918042756155" className="flex items-start gap-3 sm:gap-4 group">
+              <a
+                href="tel:+917014086770"
+                className="flex items-start gap-3 sm:gap-4 group"
+              >
                 <div className="bg-primary/10 p-2.5 sm:p-3 rounded-full text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
                   <Phone className="h-5 w-5 sm:h-6 sm:w-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1 text-sm sm:text-base group-hover:text-primary transition-colors">Phone</h4>
-                  <p className="text-gray-600 text-sm sm:text-base">+91 8042756155</p>
+                  <h4 className="font-bold text-gray-900 mb-1 text-sm sm:text-base group-hover:text-primary transition-colors">
+                    Phone
+                  </h4>
+                  <p className="text-gray-600 text-sm sm:text-base">
+                    +917014086770
+                  </p>
                 </div>
               </a>
 
-              <a href="mailto:urmi.29.bishnoi@gmail.com" className="flex items-start gap-3 sm:gap-4 group">
+              <a
+                href="mailto:urmi.29.bishnoi@gmail.com"
+                className="flex items-start gap-3 sm:gap-4 group"
+              >
                 <div className="bg-primary/10 p-2.5 sm:p-3 rounded-full text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
                   <Mail className="h-5 w-5 sm:h-6 sm:w-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1 text-sm sm:text-base group-hover:text-primary transition-colors">Email</h4>
-                  <p className="text-gray-600 text-sm sm:text-base break-all">urmi.29.bishnoi@gmail.com</p>
+                  <h4 className="font-bold text-gray-900 mb-1 text-sm sm:text-base group-hover:text-primary transition-colors">
+                    Email
+                  </h4>
+                  <p className="text-gray-600 text-sm sm:text-base break-all">
+                    urmi.29.bishnoi@gmail.com
+                  </p>
                 </div>
               </a>
             </div>
@@ -194,16 +211,22 @@ const Contact = memo(function Contact() {
                     )}
                   />
                 </div>
-                
+
                 <FormField
                   control={form.control}
                   name="service"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-sm">Service</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
-                          <SelectTrigger className="bg-white min-h-[48px]" data-testid="select-contact-service">
+                          <SelectTrigger
+                            className="bg-white min-h-[48px]"
+                            data-testid="select-contact-service"
+                          >
                             <SelectValue placeholder="Select a service" />
                           </SelectTrigger>
                         </FormControl>
@@ -225,7 +248,9 @@ const Contact = memo(function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm">Message (Optional)</FormLabel>
+                      <FormLabel className="text-sm">
+                        Message (Optional)
+                      </FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="How can we help you?"
@@ -252,6 +277,4 @@ const Contact = memo(function Contact() {
       </div>
     </section>
   );
-});
-
-export default Contact;
+}
