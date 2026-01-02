@@ -47,16 +47,16 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href}>
-              <a
+              <span
                 className={cn(
-                  "text-sm font-semibold transition-colors",
+                  "text-sm font-semibold transition-colors cursor-pointer",
                   location === link.href
                     ? "text-primary"
                     : "text-gray-900 hover:text-primary",
                 )}
               >
                 {link.name}
-              </a>
+              </span>
             </Link>
           ))}
           <Link href="/contact">
@@ -81,12 +81,12 @@ export default function Header() {
         <div className="absolute top-full left-0 right-0 bg-white shadow-lg p-4 md:hidden flex flex-col gap-4 border-t">
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href}>
-              <a
-                className="text-left text-base font-semibold text-gray-700 hover:text-primary py-2 block"
+              <span
+                className="text-left text-base font-semibold text-gray-700 hover:text-primary py-2 block cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
-              </a>
+              </span>
             </Link>
           ))}
           <Link href="/contact">
