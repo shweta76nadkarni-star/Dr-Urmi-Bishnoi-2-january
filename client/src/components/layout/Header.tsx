@@ -40,57 +40,60 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-1",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-2",
       )}
       data-testid="header"
     >
-      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
-        <Link href="/">
-          <div className="flex items-center gap-2 cursor-pointer shrink-0" data-testid="link-home-logo">
-            <img
-              src={logo}
-              alt="Best Psychologist in Jaipur - Dr. Urmil Bishnoi"
-              className="h-12 sm:h-14 md:h-16 w-auto object-contain max-w-[180px] sm:max-w-none"
-            />
-          </div>
-        </Link>
-
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
-          {navLinks.map((link) => (
-            <Link key={link.name} href={link.href}>
-              <span
-                className={cn(
-                  "text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap py-2",
-                  location === link.href
-                    ? "text-primary"
-                    : "text-gray-900 hover:text-primary",
-                )}
-                data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                {link.name}
-              </span>
-            </Link>
-          ))}
-          <Link href="/book-appointment">
-            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-5 font-semibold text-sm min-h-[44px]" data-testid="button-nav-book">
-              Book Appointment
-            </Button>
+      <div className="w-full px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="flex items-center justify-between">
+          <Link href="/">
+            <div className="flex items-center cursor-pointer" data-testid="link-home-logo">
+              <img
+                src={logo}
+                alt="Best Psychologist in Jaipur - Dr. Urmil Bishnoi"
+                className="h-10 sm:h-12 md:h-14 w-auto object-contain"
+              />
+            </div>
           </Link>
-        </nav>
 
-        <button 
-          className="lg:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center bg-primary/10 rounded-lg shrink-0" 
-          onClick={() => setIsOpen(!isOpen)}
-          data-testid="button-mobile-menu"
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
-          {isOpen ? (
-            <X className="h-6 w-6 text-primary" />
-          ) : (
-            <Menu className="h-6 w-6 text-primary" />
-          )}
-        </button>
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
+            {navLinks.map((link) => (
+              <Link key={link.name} href={link.href}>
+                <span
+                  className={cn(
+                    "text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap py-2",
+                    location === link.href
+                      ? "text-primary"
+                      : "text-gray-900 hover:text-primary",
+                  )}
+                  data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  {link.name}
+                </span>
+              </Link>
+            ))}
+            <Link href="/book-appointment">
+              <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-5 font-semibold text-sm min-h-[44px]" data-testid="button-nav-book">
+                Book Appointment
+              </Button>
+            </Link>
+          </nav>
+
+          <button 
+            className="flex lg:hidden items-center justify-center w-11 h-11 bg-primary text-white rounded-lg"
+            onClick={() => setIsOpen(!isOpen)}
+            data-testid="button-mobile-menu"
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            type="button"
+          >
+            {isOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {isOpen && (
@@ -100,7 +103,7 @@ export default function Header() {
             onClick={() => setIsOpen(false)}
             aria-hidden="true"
           />
-          <div className="fixed top-[60px] sm:top-[68px] left-0 right-0 bottom-0 bg-white z-[101] lg:hidden overflow-y-auto">
+          <div className="fixed top-[56px] sm:top-[64px] left-0 right-0 bottom-0 bg-white z-[101] lg:hidden overflow-y-auto">
             <nav className="flex flex-col p-4 gap-1">
               {navLinks.map((link) => (
                 <Link key={link.name} href={link.href}>
