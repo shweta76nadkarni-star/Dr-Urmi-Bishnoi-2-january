@@ -30,25 +30,30 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-        <div className="text-center mb-12">
-          <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">
+    <section id="faq" className="py-16 sm:py-20 bg-gray-50" data-testid="section-faq">
+      <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+        <div className="text-center mb-8 sm:mb-12">
+          <span className="text-primary font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
             Common Questions
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 font-heading">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 font-heading">
             Frequently Asked <span className="text-primary italic font-serif">Questions</span>
           </h2>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+        <div className="bg-white rounded-2xl shadow-sm p-4 sm:p-6 md:p-8">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-b-gray-100 last:border-0">
-                <AccordionTrigger className="text-left font-medium text-gray-800 hover:text-primary hover:no-underline py-4">
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`} 
+                className="border-b-gray-100 last:border-0"
+                data-testid={`faq-${index}`}
+              >
+                <AccordionTrigger className="text-left font-medium text-gray-800 hover:text-primary hover:no-underline py-4 text-sm sm:text-base">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600 leading-relaxed pb-4">
+                <AccordionContent className="text-gray-600 leading-relaxed pb-4 text-sm sm:text-base">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

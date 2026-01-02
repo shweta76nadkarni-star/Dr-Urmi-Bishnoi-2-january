@@ -9,9 +9,9 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-16 bg-primary text-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <section className="py-12 sm:py-16 bg-primary text-white" data-testid="section-stats">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -23,11 +23,12 @@ export default function Stats() {
                 type: "spring",
                 stiffness: 100,
               }}
+              data-testid={`stat-${index}`}
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2 font-heading">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2 font-heading">
                 {stat.number}
               </div>
-              <div className="text-white/80 text-sm md:text-base font-medium tracking-wide uppercase">
+              <div className="text-white/80 text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase">
                 {stat.label}
               </div>
             </motion.div>
