@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -5,30 +6,30 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export default function FAQ() {
-  const faqs = [
-    {
-      question: "What should I expect in my first session?",
-      answer: "In your first session, we will discuss your current concerns, personal history, and goals for therapy. It's a safe, non-judgmental space to see if we are a good fit."
-    },
-    {
-      question: "How long does each therapy session last?",
-      answer: "Standard individual sessions last between 45 to 60 minutes. Couples counseling sessions may be longer, typically around 90 minutes."
-    },
-    {
-      question: "Is everything I say confidential?",
-      answer: "Yes, client confidentiality is paramount. Information shared during sessions is strictly private, with exceptions only in cases of immediate harm to self or others."
-    },
-    {
-      question: "Do you offer online consultations?",
-      answer: "Yes, I offer secure online video consultations for clients who prefer to receive therapy from the comfort of their own homes."
-    },
-    {
-      question: "How many sessions will I need?",
-      answer: "The number of sessions varies for each individual depending on their unique needs and goals. We will discuss a treatment plan during your initial sessions."
-    }
-  ];
+const faqs = [
+  {
+    question: "What should I expect in my first session?",
+    answer: "In your first session, we will discuss your current concerns, personal history, and goals for therapy. It's a safe, non-judgmental space to see if we are a good fit."
+  },
+  {
+    question: "How long does each therapy session last?",
+    answer: "Standard individual sessions last between 45 to 60 minutes. Couples counseling sessions may be longer, typically around 90 minutes."
+  },
+  {
+    question: "Is everything I say confidential?",
+    answer: "Yes, client confidentiality is paramount. Information shared during sessions is strictly private, with exceptions only in cases of immediate harm to self or others."
+  },
+  {
+    question: "Do you offer online consultations?",
+    answer: "Yes, I offer secure online video consultations for clients who prefer to receive therapy from the comfort of their own homes."
+  },
+  {
+    question: "How many sessions will I need?",
+    answer: "The number of sessions varies for each individual depending on their unique needs and goals. We will discuss a treatment plan during your initial sessions."
+  }
+];
 
+const FAQ = memo(function FAQ() {
   return (
     <section id="faq" className="py-16 sm:py-20 bg-gray-50" data-testid="section-faq">
       <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
@@ -63,4 +64,6 @@ export default function FAQ() {
       </div>
     </section>
   );
-}
+});
+
+export default FAQ;

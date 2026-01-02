@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { memo, useState } from "react";
 import { Link } from "wouter";
 import {
   Card,
@@ -19,7 +19,9 @@ import {
 } from "@/components/ui/carousel";
 import { blogPosts } from "@/lib/data";
 
-function BlogCard({ post }: { post: (typeof blogPosts)[0] }) {
+const BlogCard = memo(function BlogCard({ post }: { post: (typeof blogPosts)[0] }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <Card className="h-full border-none shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex flex-col" data-testid={`card-blog-${post.id}`}>
       <div className="relative h-40 sm:h-48 overflow-hidden">
@@ -28,11 +30,20 @@ function BlogCard({ post }: { post: (typeof blogPosts)[0] }) {
             {post.category}
           </Badge>
         </div>
+        {!imageLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
+        )}
         <img
           src={post.image}
           alt={post.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          width={400}
+          height={200}
           loading="lazy"
+          decoding="async"
+          onLoad={() => setImageLoaded(true)}
+          className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
         />
       </div>
       <CardHeader className="pb-2 px-4 sm:px-6">
@@ -69,9 +80,9 @@ function BlogCard({ post }: { post: (typeof blogPosts)[0] }) {
       </CardFooter>
     </Card>
   );
-}
+});
 
-export default function Blog() {
+const Blog = memo(function Blog() {
   const sliderPosts = blogPosts.slice(0, 10);
 
   return (
@@ -136,4 +147,6 @@ export default function Blog() {
       </div>
     </section>
   );
-}
+});
+
+export default Blog;

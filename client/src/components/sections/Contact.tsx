@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,7 +33,7 @@ const formSchema = z.object({
   message: z.string().optional(),
 });
 
-export default function Contact() {
+const Contact = memo(function Contact() {
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -251,4 +252,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+});
+
+export default Contact;

@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import heroBg from "@assets/hero_bg_leaves.jpg";
 import { Link } from "wouter";
+import { memo } from "react";
 
-export default function Hero() {
+const Hero = memo(function Hero() {
   const handleGetStarted = () => {
     window.open("https://wa.me/918042756155", "_blank");
   };
@@ -74,4 +75,6 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+});
+
+export default Hero;

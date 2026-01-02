@@ -1,16 +1,19 @@
+import { memo, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import urmiPic from "@assets/urmi_pic_1764666975212.jpg";
 import { Link } from "wouter";
 
-export default function About() {
-  const qualifications = [
-    "Ph.D & M.Phil in Psychology",
-    "Empathetic, Supportive & Non-judgmental",
-    "Holistic, Client-Centered & Result-Oriented",
-    "Extensive background in clinical psychology",
-  ];
+const qualifications = [
+  "Ph.D & M.Phil in Psychology",
+  "Empathetic, Supportive & Non-judgmental",
+  "Holistic, Client-Centered & Result-Oriented",
+  "Extensive background in clinical psychology",
+];
+
+const About = memo(function About() {
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <section id="about" className="py-16 sm:py-20 bg-white overflow-hidden" data-testid="section-about">
@@ -24,13 +27,24 @@ export default function About() {
             className="relative flex justify-center lg:justify-start order-2 lg:order-1"
           >
             <div className="absolute -inset-4 bg-primary/5 rounded-[2rem] -z-10 rotate-0 translate-y-4 translate-x-4 w-50 hidden sm:block" />
-            <img
-              src={urmiPic}
-              alt="Dr. Urmil Bishnoi - Best Psychologist in Jaipur"
-              className="rounded-2xl shadow-xl w-full max-w-md lg:max-w-xl h-auto object-contain bg-white"
-              data-testid="img-about-dr-urmil"
-              loading="lazy"
-            />
+            <div className="relative w-full max-w-md lg:max-w-xl">
+              {!imageLoaded && (
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse rounded-2xl" />
+              )}
+              <img
+                src={urmiPic}
+                alt="Dr. Urmil Bishnoi - Best Psychologist in Jaipur"
+                width={500}
+                height={600}
+                loading="lazy"
+                decoding="async"
+                onLoad={() => setImageLoaded(true)}
+                className={`rounded-2xl shadow-xl w-full h-auto object-contain bg-white transition-opacity duration-300 ${
+                  imageLoaded ? "opacity-100" : "opacity-0"
+                }`}
+                data-testid="img-about-dr-urmil"
+              />
+            </div>
             <div className="absolute bottom-4 sm:bottom-8 right-2 sm:right-4 lg:-right-8 bg-white p-4 sm:p-6 rounded-xl shadow-lg max-w-[200px] sm:max-w-xs hidden sm:block border border-gray-100">
               <div className="flex items-center gap-3 sm:gap-4 mb-2">
                 <div className="bg-primary/10 p-2 rounded-full text-primary font-bold text-lg sm:text-xl">
@@ -91,4 +105,6 @@ export default function About() {
       </div>
     </section>
   );
-}
+});
+
+export default About;

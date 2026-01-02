@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
@@ -50,7 +51,66 @@ const plans = [
   },
 ];
 
-export default function Pricing() {
+const PricingCard = memo(function PricingCard({ 
+  plan, 
+  index 
+}: { 
+  plan: typeof plans[0]; 
+  index: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className={plan.featured ? "sm:col-span-2 lg:col-span-1" : ""}
+    >
+      <Card
+        className={`h-full border transition-all duration-300 hover:shadow-xl ${plan.featured ? "border-primary shadow-lg lg:scale-105 z-10 relative" : "border-gray-100 shadow-sm hover:-translate-y-1"}`}
+        data-testid={`card-pricing-${index}`}
+      >
+        {plan.featured && (
+          <div className="bg-primary text-white text-xs font-bold uppercase text-center py-1.5 absolute top-0 left-0 w-full rounded-t-lg">
+            Recommended
+          </div>
+        )}
+        <CardHeader
+          className={`${plan.featured ? "pt-10" : "pt-6"} text-center pb-2 px-4 sm:px-6`}
+        >
+          <CardTitle className="text-lg sm:text-xl font-bold text-gray-900">
+            {plan.title}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="pt-4 sm:pt-6 px-4 sm:px-6">
+          <ul className="space-y-3 sm:space-y-4">
+            {plan.features.map((feature, i) => (
+              <li
+                key={i}
+                className="flex items-center gap-3 text-sm text-gray-600"
+              >
+                <Check className="h-4 w-4 text-primary shrink-0" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+        <CardFooter className="px-4 sm:px-6 pb-6">
+          <Link href="/book-appointment" className="w-full">
+            <Button
+              className={`w-full rounded-full min-h-[48px] ${plan.featured ? "bg-primary hover:bg-primary/90" : "bg-white border-2 border-primary text-primary hover:bg-primary/5"}`}
+              data-testid={`button-book-${index}`}
+            >
+              Book Appointment
+            </Button>
+          </Link>
+        </CardFooter>
+      </Card>
+    </motion.div>
+  );
+});
+
+const Pricing = memo(function Pricing() {
   return (
     <section id="pricing" className="py-16 sm:py-20 bg-white relative overflow-hidden" data-testid="section-pricing">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -75,58 +135,12 @@ export default function Pricing() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={plan.featured ? "sm:col-span-2 lg:col-span-1" : ""}
-            >
-              <Card
-                className={`h-full border transition-all duration-300 hover:shadow-xl ${plan.featured ? "border-primary shadow-lg lg:scale-105 z-10 relative" : "border-gray-100 shadow-sm hover:-translate-y-1"}`}
-                data-testid={`card-pricing-${index}`}
-              >
-                {plan.featured && (
-                  <div className="bg-primary text-white text-xs font-bold uppercase text-center py-1.5 absolute top-0 left-0 w-full rounded-t-lg">
-                    Recommended
-                  </div>
-                )}
-                <CardHeader
-                  className={`${plan.featured ? "pt-10" : "pt-6"} text-center pb-2 px-4 sm:px-6`}
-                >
-                  <CardTitle className="text-lg sm:text-xl font-bold text-gray-900">
-                    {plan.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="pt-4 sm:pt-6 px-4 sm:px-6">
-                  <ul className="space-y-3 sm:space-y-4">
-                    {plan.features.map((feature, i) => (
-                      <li
-                        key={i}
-                        className="flex items-center gap-3 text-sm text-gray-600"
-                      >
-                        <Check className="h-4 w-4 text-primary shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter className="px-4 sm:px-6 pb-6">
-                  <Link href="/book-appointment" className="w-full">
-                    <Button
-                      className={`w-full rounded-full min-h-[48px] ${plan.featured ? "bg-primary hover:bg-primary/90" : "bg-white border-2 border-primary text-primary hover:bg-primary/5"}`}
-                      data-testid={`button-book-${index}`}
-                    >
-                      Book Appointment
-                    </Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </motion.div>
+            <PricingCard key={index} plan={plan} index={index} />
           ))}
         </div>
       </div>
     </section>
   );
-}
+});
+
+export default Pricing;

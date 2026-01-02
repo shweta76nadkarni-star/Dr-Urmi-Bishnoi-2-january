@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { memo } from "react";
 import { Star, Quote } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -37,7 +37,51 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+const TestimonialCard = memo(function TestimonialCard({ 
+  item, 
+  index 
+}: { 
+  item: typeof testimonials[0]; 
+  index: number;
+}) {
+  return (
+    <Card className="h-full border-none shadow-sm bg-white relative overflow-visible" data-testid={`testimonial-${index}`}>
+      <div className="absolute -top-0 left-6 sm:left-8 bg-primary text-white p-2 rounded-full shadow-md">
+        <Quote className="h-4 w-4 sm:h-5 sm:w-5 fill-current" />
+      </div>
+      <CardContent className="pt-8 sm:pt-10 pb-6 sm:pb-8 px-4 sm:px-6 flex flex-col h-full justify-between">
+        <div>
+          <div className="flex mb-3 sm:mb-4">
+            {[...Array(item.rating)].map((_, i) => (
+              <Star
+                key={i}
+                className="h-4 w-4 text-yellow-400 fill-current"
+              />
+            ))}
+          </div>
+          <p className="text-gray-600 italic mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+            "{item.text}"
+          </p>
+        </div>
+        <div className="flex items-center gap-3 sm:gap-4 mt-auto">
+          <Avatar className="h-10 w-10 sm:h-12 sm:w-12">
+            <AvatarFallback className="bg-primary/10 text-primary font-bold text-sm sm:text-base">
+              {item.name[0]}
+            </AvatarFallback>
+          </Avatar>
+          <div>
+            <h4 className="font-bold text-gray-900 text-sm">
+              {item.name}
+            </h4>
+            <p className="text-xs text-gray-500">{item.role}</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+});
+
+const Testimonials = memo(function Testimonials() {
   return (
     <section id="testimonials" className="py-16 sm:py-20 bg-primary/5" data-testid="section-testimonials">
       <div className="container mx-auto px-4 sm:px-6">
@@ -66,39 +110,7 @@ export default function Testimonials() {
                   className="pl-2 sm:pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
                 >
                   <div className="p-1 h-full">
-                    <Card className="h-full border-none shadow-sm bg-white relative overflow-visible" data-testid={`testimonial-${index}`}>
-                      <div className="absolute -top-0 left-6 sm:left-8 bg-primary text-white p-2 rounded-full shadow-md">
-                        <Quote className="h-4 w-4 sm:h-5 sm:w-5 fill-current" />
-                      </div>
-                      <CardContent className="pt-8 sm:pt-10 pb-6 sm:pb-8 px-4 sm:px-6 flex flex-col h-full justify-between">
-                        <div>
-                          <div className="flex mb-3 sm:mb-4">
-                            {[...Array(item.rating)].map((_, i) => (
-                              <Star
-                                key={i}
-                                className="h-4 w-4 text-yellow-400 fill-current"
-                              />
-                            ))}
-                          </div>
-                          <p className="text-gray-600 italic mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                            "{item.text}"
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-3 sm:gap-4 mt-auto">
-                          <Avatar className="h-10 w-10 sm:h-12 sm:w-12">
-                            <AvatarFallback className="bg-primary/10 text-primary font-bold text-sm sm:text-base">
-                              {item.name[0]}
-                            </AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <h4 className="font-bold text-gray-900 text-sm">
-                              {item.name}
-                            </h4>
-                            <p className="text-xs text-gray-500">{item.role}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                    <TestimonialCard item={item} index={index} />
                   </div>
                 </CarouselItem>
               ))}
@@ -114,4 +126,6 @@ export default function Testimonials() {
       </div>
     </section>
   );
-}
+});
+
+export default Testimonials;

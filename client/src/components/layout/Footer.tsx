@@ -4,9 +4,9 @@ import { Link } from "wouter";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white pt-12 sm:pt-16 pb-8">
+    <footer className="bg-gray-900 text-white pt-1 sm:pt-4 pb-4">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-1 mb-1 sm:mb-1">
           <div className="sm:col-span-2 lg:col-span-1">
             <img
               src={logo}
@@ -15,7 +15,9 @@ export default function Footer() {
               data-testid="img-footer-logo"
             />
             <p className="text-gray-400 text-sm leading-relaxed mb-4 sm:mb-6">
-              Providing top-rated psychological counseling in Jaipur. Expert hypnotherapy and mental wellness treatments to help you find inner peace.
+              Providing top-rated psychological counseling in Jaipur. Expert
+              hypnotherapy and mental wellness treatments to help you find inner
+              peace.
             </p>
             <div className="flex gap-3">
               <a
@@ -38,35 +40,55 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-base sm:text-lg font-bold mb-4 sm:mb-6">Quick Links</h4>
+            <h4 className="text-base sm:text-lg font-bold mb-4 sm:mb-6">
+              Quick Links
+            </h4>
             <ul className="space-y-2 sm:space-y-3 text-sm text-gray-400">
               <li>
-                <Link href="/" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/about"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   About Dr. Urmil
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/services"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/blog"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/contact"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/book-appointment" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/book-appointment"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   Book Appointment
                 </Link>
               </li>
@@ -74,30 +96,47 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-base sm:text-lg font-bold mb-4 sm:mb-6">Services</h4>
+            <h4 className="text-base sm:text-lg font-bold mb-4 sm:mb-6">
+              Services
+            </h4>
             <ul className="space-y-2 sm:space-y-3 text-sm text-gray-400">
               <li>
-                <Link href="/services#hypnotherapy" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/services#hypnotherapy"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   Hypnotherapy
                 </Link>
               </li>
               <li>
-                <Link href="/services#anxiety-disorder" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/services#anxiety-disorder"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   Anxiety Treatment
                 </Link>
               </li>
               <li>
-                <Link href="/services#depression-therapy" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/services#depression-therapy"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   Depression Therapy
                 </Link>
               </li>
               <li>
-                <Link href="/services#ptsd-treatment" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/services#ptsd-treatment"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   PTSD Treatment
                 </Link>
               </li>
               <li>
-                <Link href="/services#career-counseling" className="hover:text-primary transition-colors py-1 inline-block">
+                <Link
+                  href="/services#career-counseling"
+                  className="hover:text-primary transition-colors py-1 inline-block"
+                >
                   Career Counseling
                 </Link>
               </li>
@@ -105,20 +144,31 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-base sm:text-lg font-bold mb-4 sm:mb-6">Contact</h4>
+            <h4 className="text-base sm:text-lg font-bold mb-4 sm:mb-6">
+              Contact
+            </h4>
             <ul className="space-y-3 sm:space-y-4 text-sm text-gray-400">
               <li className="flex gap-3 items-start">
                 <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <span>Plot No.125, Sukhija Vihar, Kanak Vrindavan, Vaishali Nagar, Jaipur – 302021</span>
+                <span>
+                  Plot No.125, Sukhija Vihar, Kanak Vrindavan, Maharana Pratap
+                  Road, Vaishali Nagar, Jaipur – Rajasthan 302021
+                </span>
               </li>
               <li>
-                <a href="tel:+918042756155" className="flex gap-3 items-center hover:text-primary transition-colors py-1">
+                <a
+                  href="tel:+917014086770"
+                  className="flex gap-3 items-center hover:text-primary transition-colors py-1"
+                >
                   <Phone className="h-5 w-5 text-primary shrink-0" />
-                  <span>+91 8042756155</span>
+                  <span>+917014086770</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:urmi.29.bishnoi@gmail.com" className="flex gap-3 items-center hover:text-primary transition-colors py-1 break-all">
+                <a
+                  href="mailto:urmi.29.bishnoi@gmail.com"
+                  className="flex gap-3 items-center hover:text-primary transition-colors py-1 break-all"
+                >
                   <Mail className="h-5 w-5 text-primary shrink-0" />
                   <span>urmi.29.bishnoi@gmail.com</span>
                 </a>
@@ -127,11 +177,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center text-gray-500 text-xs space-y-2">
+        <div className="border-t border-gray-800 pt-4 sm:pt-4 text-center text-gray-500 text-xs space-y-2">
           <p>
-            © {new Date().getFullYear()} Dr. Urmil Bishnoi. All rights reserved.
+            © {new Date().getFullYear()} Dr. Urmil Bishnoi. All rights
+            reserved.
           </p>
-          <p>Made with care by UDM Techno</p>
+          <p>Made with ❤️ By UDM Techno</p>
         </div>
       </div>
     </footer>

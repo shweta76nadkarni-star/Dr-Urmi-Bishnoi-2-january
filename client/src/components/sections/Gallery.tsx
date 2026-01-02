@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { memo, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -32,14 +32,43 @@ const galleryImages = [
   img10,
 ];
 
-export default function Gallery() {
+const GalleryImage = memo(function GalleryImage({ 
+  src, 
+  index 
+}: { 
+  src: string; 
+  index: number;
+}) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
-    <section className="py-16 bg-gray-50 border-t border-gray-100">
+    <Card className="border-none shadow-sm overflow-hidden rounded-xl">
+      <CardContent className="p-0 aspect-square relative">
+        {!isLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
+        )}
+        <img
+          src={src}
+          alt={`Dr. Urmil Bishnoi Gallery ${index + 1}`}
+          width={300}
+          height={300}
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setIsLoaded(true)}
+          className={`w-full h-full object-cover transition-all duration-300 hover:scale-105 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      </CardContent>
+    </Card>
+  );
+});
+
+const Gallery = memo(function Gallery() {
+  return (
+    <section className="py-16 bg-gray-50 border-t border-gray-100" data-testid="section-gallery">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-10">
-          {/* <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">
-            Our Clinic
-          </span> */}
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 font-heading">
             A Glimpse of{" "}
             <span className="text-primary italic font-serif">
@@ -60,30 +89,19 @@ export default function Gallery() {
               {galleryImages.map((image, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-4 md:basis-1/3 lg:basis-1/4"
+                  className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Card className="border-none shadow-sm overflow-hidden rounded-xl">
-                      <CardContent className="p-0 aspect-square">
-                        <img
-                          src={image}
-                          alt={`Clinic Gallery ${index + 1}`}
-                          className="w-full h-full object-cover hover:opacity-90 transition-opacity"
-                        />
-                      </CardContent>
-                    </Card>
-                  </motion.div>
+                  <GalleryImage src={image} index={index} />
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="bg-white border-gray-200 text-gray-700 hover:bg-primary hover:text-white hover:border-primary -left-12" />
-            <CarouselNext className="bg-white border-gray-200 text-gray-700 hover:bg-primary hover:text-white hover:border-primary -right-12" />
+            <CarouselPrevious className="bg-white border-gray-200 text-gray-700 hover:bg-primary hover:text-white hover:border-primary -left-12 hidden md:flex" />
+            <CarouselNext className="bg-white border-gray-200 text-gray-700 hover:bg-primary hover:text-white hover:border-primary -right-12 hidden md:flex" />
           </Carousel>
         </div>
       </div>
     </section>
   );
-}
+});
+
+export default Gallery;
