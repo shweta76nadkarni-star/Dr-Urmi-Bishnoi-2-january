@@ -10,12 +10,11 @@ export default function Footer() {
           <div>
             <img
               src={logo}
-              alt="Dr. Urmil Bishnoi"
+              alt="Dr. Urmil Bishnoi - Top Counselor in Jaipur"
               className="h-16 w-auto mb-6 brightness-0 invert opacity-90"
             />
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Providing professional psychological support and evidence-based
-              therapies to help you find your inner peace and mental wellness.
+              Providing top-rated psychological counseling in Jaipur. Expert hypnotherapy and mental wellness treatments near Vaishali Nagar to help you find inner peace.
             </p>
             <div className="flex gap-4">
               <a

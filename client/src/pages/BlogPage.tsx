@@ -34,6 +34,7 @@ import {
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
+import { useEffect } from "react";
 
 // Mock data for blog posts
 const blogPosts = [
@@ -128,18 +129,19 @@ function SocialShare({ post }: { post: (typeof blogPosts)[0] }) {
 
   const handleShare = (platform: string) => {
     let url = "";
+    const postUrl = post.url || `https://www.drurmilbishnoi.in/blog/${post.id}`;
     switch (platform) {
       case "whatsapp":
-        url = `https://wa.me/?text=${encodeURIComponent(`${shareText} ${shareUrl}`)}`;
+        url = `https://wa.me/?text=${encodeURIComponent(`${shareText} ${postUrl}`)}`;
         break;
       case "twitter":
-        url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+        url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(postUrl)}`;
         break;
       case "facebook":
-        url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+        url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`;
         break;
       case "linkedin":
-        url = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(post.title)}`;
+        url = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(postUrl)}&title=${encodeURIComponent(post.title)}`;
         break;
     }
     window.open(url, "_blank");
@@ -262,6 +264,12 @@ function BlogCard({ post }: { post: (typeof blogPosts)[0] }) {
 export default function BlogPage() {
   const mainPosts = blogPosts.slice(0, 3);
   const sliderPosts = blogPosts.slice(3);
+
+  useEffect(() => {
+    document.title = "Mental Health Blog & Wellness Insights | Jaipur";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", "Stay informed with the latest insights on mental wellness, anxiety relief, and therapy techniques from Jaipur's top psychologist, Dr. Urmil Bishnoi.");
+  }, []);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary/20">

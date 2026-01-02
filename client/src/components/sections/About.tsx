@@ -55,16 +55,10 @@ export default function About() {
               About Us
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 font-heading">
-              Transform Your{" "}
-              <span className="text-primary italic font-serif">
-                Mental Health{" "}
-              </span>
+              Top-Rated Clinical <span className="text-primary italic font-serif">Psychologist in Jaipur</span>
             </h2>
             <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-              Dr. Urmil Bishnoi is a distinguished psychologist dedicated to
-              helping individuals find balance and peace. With a compassionate,
-              client-centered approach, she creates a safe environment where
-              healing begins.
+              Dr. Urmil Bishnoi is a distinguished psychologist in Jaipur dedicated to helping individuals find balance and peace. With over 22 years of experience in clinical psychology near Vaishali Nagar, she offers a safe, non-judgmental environment for healing.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">

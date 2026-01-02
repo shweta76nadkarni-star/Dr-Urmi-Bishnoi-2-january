@@ -22,7 +22,7 @@ export default function Services() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 font-heading"
           >
-            Therapies & <span className="text-primary italic font-serif">Treatments</span>
+            Best <span className="text-primary italic font-serif">Therapy Services</span> in Jaipur
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
@@ -31,7 +31,7 @@ export default function Services() {
             transition={{ delay: 0.2 }}
             className="text-gray-600"
           >
-            Comprehensive psychological services tailored to your unique needs, helping you achieve mental wellness and personal growth.
+            Expert hypnotherapy, anxiety treatment, and depression counseling in Jaipur. Tailored psychological services near you for lasting mental wellness and personal growth.
           </motion.p>
         </div>
 

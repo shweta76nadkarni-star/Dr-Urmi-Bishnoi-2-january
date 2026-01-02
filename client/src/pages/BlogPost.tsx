@@ -7,11 +7,20 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { useEffect } from "react";
 
 export default function BlogPost() {
   const [match, params] = useRoute("/blog/:id");
   const id = params?.id ? parseInt(params.id) : null;
   const post = blogPosts.find((p) => p.id === id);
+
+  useEffect(() => {
+    if (post) {
+      document.title = `${post.title} | Dr. Urmil Bishnoi Blog`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", post.excerpt);
+    }
+  }, [post]);
 
   if (!match || !post) {
     return (

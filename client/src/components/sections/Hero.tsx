@@ -37,15 +37,13 @@ export default function Hero() {
             Welcome to MindThera
           </span> */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-lg font-heading">
-            Begin Your <br />
+            Best Psychologist in <span className="text-secondary">Jaipur</span> <br />
             <span className="italic font-serif text-secondary">
               Inner Peace Journey
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
-            Embark on a journey of self-discovery and emotional healing with
-            expert therapy. Dr. Urmil Bishnoi provides a safe space for your
-            mental wellness.
+            Begin your healing with the best psychological counseling in Jaipur. Dr. Urmil Bishnoi provides expert therapy near you for anxiety, depression, and mental wellness in Vaishali Nagar.
           </p>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

@@ -26,6 +26,7 @@ import { services } from "@/lib/data";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -48,6 +49,19 @@ export default function ContactPage() {
     },
   });
 
+  useEffect(() => {
+    document.title = "Contact Best Psychologist in Jaipur | Dr. Urmil Bishnoi";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Book an appointment with the best psychologist in Jaipur. Visit Dr. Urmil Bishnoi in Vaishali Nagar for expert counseling & therapy. Call +91 8042756155.");
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = "Book an appointment with the best psychologist in Jaipur. Visit Dr. Urmil Bishnoi in Vaishali Nagar for expert counseling & therapy. Call +91 8042756155.";
+      document.head.appendChild(meta);
+    }
+  }, []);
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     const message = `Hello Dr. Urmil, my name is ${values.name}. I would like to book an appointment. Phone: ${values.phone}. Email: ${values.email}. ${values.message ? `Message: ${values.message}` : ""}`;
     const whatsappUrl = `https://wa.me/+918042756155?text=${encodeURIComponent(message)}`;
@@ -59,6 +73,7 @@ export default function ContactPage() {
         "Thank you! Redirecting to WhatsApp to confirm your appointment.",
     });
   }
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary/20">
       <Header />
@@ -75,15 +90,12 @@ export default function ContactPage() {
                 <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">
                   Get In Touch
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 font-heading">
-                  Contact &{" "}
-                  <span className="text-primary italic font-serif">
-                    Appointments
-                  </span>
-                </h2>
+                <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 font-heading">
+                  Counseling Near Me in <span className="text-primary italic font-serif">Jaipur</span>
+                </h1>
+                <h2 className="text-xl font-bold mb-4 text-gray-800">Visit Our Clinic in Vaishali Nagar</h2>
                 <p className="text-gray-600 mb-8 text-lg">
-                  Take the first step towards healing. Reach out to schedule a
-                  consultation or ask any questions.
+                  Reach out to the top counselor in Jaipur today. We are here to help you navigate your journey toward mental wellness.
                 </p>
 
                 <div className="space-y-8">

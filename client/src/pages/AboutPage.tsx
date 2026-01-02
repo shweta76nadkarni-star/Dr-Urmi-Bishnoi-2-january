@@ -5,14 +5,27 @@ import urmiPic from "@assets/urmi_pic_1764666975212.jpg";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
+import { useEffect } from "react";
 
 export default function AboutPage() {
   const qualifications = [
-    "Experience: 15+ Years in Clinical Psychology",
-    "Strengths: Empathy, Non-judgmental approach",
-    "Approach: Holistic & Evidence-based",
-    "Languages: English, Hindi",
+    " Ph.D & M.Phil in Psychology  ",
+    " Empathetic, Supportive & Non-judgmental",
+    " Holistic, Client-Centered & Result-Oriented",
+    " Extensive background in clinical psychology",
   ];
+  useEffect(() => {
+    document.title = "About Dr. Urmil Bishnoi | Top Psychologist in Jaipur";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Meet Dr. Urmil Bishnoi, a top psychologist in Jaipur with 22+ years of experience. Expert in clinical psychology, healing anxiety, and mental wellness counseling.");
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = "Meet Dr. Urmil Bishnoi, a top psychologist in Jaipur with 22+ years of experience. Expert in clinical psychology, healing anxiety, and mental wellness counseling.";
+      document.head.appendChild(meta);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary/20">
@@ -32,20 +45,20 @@ export default function AboutPage() {
                 <div className="absolute -inset-4 bg-primary/5 rounded-[2rem] -z-10 rotate-0 translate-y-4 translate-x-4 w-50" />
                 <img
                   src={urmiPic}
-                  alt="Dr. Urmil Bishnoi"
+                  alt="Dr. Urmil Bishnoi - Psychologist in Jaipur"
                   className="rounded-2xl shadow-xl w-full max-w-xl h-auto object-contain bg-white"
                 />
                 <div className="absolute bottom-8 right-4 lg:-right-8 bg-white p-6 rounded-xl shadow-lg max-w-xs hidden md:block border border-gray-100">
                   <div className="flex items-center gap-4 mb-2">
                     <div className="bg-primary/10 p-2 rounded-full text-primary font-bold text-xl">
-                      15+
+                      22+
                     </div>
                     <div className="text-sm font-semibold text-gray-800">
                       Years of Experience
                     </div>
                   </div>
                   <p className="text-xs text-gray-500">
-                    Dedicated to your mental wellness and personal growth.
+                    Dedicated to your mental wellness in Jaipur.
                   </p>
                 </div>
               </motion.div>
@@ -60,17 +73,12 @@ export default function AboutPage() {
                 <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">
                   About Dr. Urmil
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 font-heading">
-                  Transform Your{" "}
-                  <span className="text-primary italic font-serif">
-                    Mental Health
-                  </span>
-                </h2>
+                <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 font-heading">
+                  Best Counselor in <span className="text-primary italic font-serif">Jaipur</span>
+                </h1>
+                <h2 className="text-xl font-semibold mb-4 text-gray-800">Transform Your Mental Health with Expert Guidance</h2>
                 <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                  Dr. Urmil Bishnoi is a distinguished psychologist dedicated to
-                  helping individuals find balance and peace. With a compassionate,
-                  client-centered approach, she creates a safe environment where
-                  healing begins.
+                  Dr. Urmil Bishnoi is a top-rated psychologist in Jaipur helping individuals find balance. With a compassionate, client-centered approach near Vaishali Nagar, she creates a safe space for emotional healing.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">

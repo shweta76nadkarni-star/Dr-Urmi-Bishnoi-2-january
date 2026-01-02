@@ -11,8 +11,22 @@ import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
 import Gallery from "@/components/sections/Gallery";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Best Psychologist in Jaipur | Dr. Urmil Bishnoi Therapy";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Looking for the best psychologist in Jaipur? Dr. Urmil Bishnoi offers expert counseling for anxiety, depression & hypnotherapy. Book your session today!");
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = "Looking for the best psychologist in Jaipur? Dr. Urmil Bishnoi offers expert counseling for anxiety, depression & hypnotherapy. Book your session today!";
+      document.head.appendChild(meta);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary/20">
       <Header />

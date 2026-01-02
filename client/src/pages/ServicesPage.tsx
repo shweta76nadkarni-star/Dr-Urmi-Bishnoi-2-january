@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
+import { useEffect } from "react";
 
 const services = [
   {
@@ -39,6 +40,19 @@ const services = [
 ];
 
 export default function ServicesPage() {
+  useEffect(() => {
+    document.title = "Psychological Services in Jaipur | Hypnotherapy & Counseling";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Explore expert psychological services in Jaipur. Specialized anxiety treatment, depression therapy, and hypnotherapy by Dr. Urmil Bishnoi. Near Vaishali Nagar.");
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = "Explore expert psychological services in Jaipur. Specialized anxiety treatment, depression therapy, and hypnotherapy by Dr. Urmil Bishnoi. Near Vaishali Nagar.";
+      document.head.appendChild(meta);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary/20">
       <Header />
@@ -54,15 +68,15 @@ export default function ServicesPage() {
               >
                 Our Services
               </motion.span>
-              <motion.h2 
+              <motion.h1 
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
                 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 font-heading"
               >
-                Therapies & <span className="text-primary italic font-serif">Treatments</span>
-              </motion.h2>
+                Best <span className="text-primary italic font-serif">Psychological Therapy</span> in Jaipur
+              </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +84,7 @@ export default function ServicesPage() {
                 transition={{ delay: 0.2 }}
                 className="text-gray-600"
               >
-                Comprehensive psychological services tailored to your unique needs, helping you achieve mental wellness and personal growth.
+                Comprehensive psychological services in Jaipur tailored to your unique needs. Helping you achieve mental wellness through expert counseling near Vaishali Nagar.
               </motion.p>
             </div>
 

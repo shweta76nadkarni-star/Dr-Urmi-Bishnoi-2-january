@@ -37,7 +37,7 @@ export default function Header() {
           <div className="flex items-center gap-2 cursor-pointer">
             <img
               src={logo}
-              alt="Dr. Urmil Bishnoi Logo"
+              alt="Best Psychologist in Jaipur - Dr. Urmil Bishnoi"
               className="h-17 w-auto object-contain"
             />
           </div>
