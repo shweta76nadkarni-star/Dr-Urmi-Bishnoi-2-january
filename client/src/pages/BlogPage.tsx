@@ -11,7 +11,6 @@ import {
   Calendar,
   Clock,
   ArrowRight,
-  Share2,
   Facebook,
   Twitter,
   Linkedin,
@@ -35,101 +34,17 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 import { useEffect } from "react";
+import { Link } from "wouter";
+import { blogPosts } from "@/lib/data";
 
-// Mock data for blog posts
-const blogPosts = [
-  {
-    id: 1,
-    title: "Understanding High-Functioning Anxiety",
-    excerpt:
-      "Learn to recognize the subtle signs of high-functioning anxiety and discover effective coping strategies.",
-    date: "October 15, 2023",
-    readTime: "5 min read",
-    category: "Anxiety",
-    image:
-      "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=2070&auto=format&fit=crop",
-    url: "https://drurmilbishnoi.com/blog/understanding-anxiety",
-  },
-  {
-    id: 2,
-    title: "The Science Behind Hypnotherapy",
-    excerpt:
-      "Demystifying the practice of hypnotherapy and exploring how it accesses the subconscious to promote healing.",
-    date: "September 28, 2023",
-    readTime: "7 min read",
-    category: "Hypnotherapy",
-    image:
-      "https://t4.ftcdn.net/jpg/03/39/11/57/360_F_339115718_4sqfgHxMdvtTYjzlCCdQtz2wh7jr3gVy.jpg",
-    url: "https://drurmilbishnoi.com/blog/hypnotherapy-science",
-  },
-  {
-    id: 3,
-    title: "Rebuilding Trust in Relationships",
-    excerpt:
-      "Practical steps for couples to heal from conflict and rebuild a stronger foundation of trust and intimacy.",
-    date: "September 10, 2023",
-    readTime: "6 min read",
-    category: "Relationships",
-    image:
-      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop",
-    url: "https://drurmilbishnoi.com/blog/rebuilding-trust",
-  },
-  {
-    id: 4,
-    title: "Mindfulness Techniques for Daily Stress",
-    excerpt:
-      "Simple, actionable mindfulness exercises you can practice anywhere to instantly reduce stress levels.",
-    date: "August 22, 2023",
-    readTime: "4 min read",
-    category: "Wellness",
-    image:
-      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop",
-    url: "https://drurmilbishnoi.com/blog/mindfulness-techniques",
-  },
-  {
-    id: 5,
-    title: "Recognizing Signs of Depression in Teens",
-    excerpt:
-      "A guide for parents to understand the early warning signs of depression in adolescents and how to help.",
-    date: "August 05, 2023",
-    readTime: "8 min read",
-    category: "Child Psychology",
-    image:
-      "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=2070&auto=format&fit=crop",
-    url: "https://drurmilbishnoi.com/blog/teen-depression",
-  },
-  {
-    id: 6,
-    title: "Navigating PTSD Triggers safely",
-    excerpt:
-      "Strategies for managing PTSD triggers and grounding yourself when past trauma resurfaces.",
-    date: "July 18, 2023",
-    readTime: "6 min read",
-    category: "Trauma",
-    image:
-      "https://media.istockphoto.com/id/1197633305/photo/ptsd-post-traumatic-stress-written-on-the-puzzle.jpg?s=612x612&w=0&k=20&c=7jFXgnoepFXZDBgpkO0_L_EAEJQaOg7VkEDIDKL3fVs=",
-  },
-  {
-    id: 7,
-    title: "The Importance of Self-Care",
-    excerpt:
-      "Why self-care is not selfish: Understanding the vital role of self-preservation in mental health.",
-    date: "July 01, 2023",
-    readTime: "5 min read",
-    category: "Self Care",
-    image:
-      "https://images.unsplash.com/photo-1515847049296-a281d6401047?q=80&w=2070&auto=format&fit=crop",
-    url: "https://drurmilbishnoi.com/blog/self-care",
-  },
-];
+type BlogPost = typeof blogPosts[0];
 
-function SocialShare({ post }: { post: (typeof blogPosts)[0] }) {
+function SocialShare({ post }: { post: BlogPost }) {
   const shareText = `Check out this article: ${post.title}`;
-  const shareUrl = post.url;
 
   const handleShare = (platform: string) => {
     let url = "";
-    const postUrl = post.url || `https://www.drurmilbishnoi.in/blog/${post.id}`;
+    const postUrl = `https://www.drurmilbishnoi.in/blog/${(post as any).slug}`;
     switch (platform) {
       case "whatsapp":
         url = `https://wa.me/?text=${encodeURIComponent(`${shareText} ${postUrl}`)}`;
@@ -157,6 +72,7 @@ function SocialShare({ post }: { post: (typeof blogPosts)[0] }) {
               variant="ghost"
               className="h-8 w-8 text-green-600 hover:bg-green-50"
               onClick={() => handleShare("whatsapp")}
+              data-testid={`button-share-whatsapp-${post.id}`}
             >
               <MessageCircle className="h-4 w-4" />
             </Button>
@@ -171,6 +87,7 @@ function SocialShare({ post }: { post: (typeof blogPosts)[0] }) {
               variant="ghost"
               className="h-8 w-8 text-blue-400 hover:bg-blue-50"
               onClick={() => handleShare("twitter")}
+              data-testid={`button-share-twitter-${post.id}`}
             >
               <Twitter className="h-4 w-4" />
             </Button>
@@ -185,6 +102,7 @@ function SocialShare({ post }: { post: (typeof blogPosts)[0] }) {
               variant="ghost"
               className="h-8 w-8 text-blue-600 hover:bg-blue-50"
               onClick={() => handleShare("facebook")}
+              data-testid={`button-share-facebook-${post.id}`}
             >
               <Facebook className="h-4 w-4" />
             </Button>
@@ -199,6 +117,7 @@ function SocialShare({ post }: { post: (typeof blogPosts)[0] }) {
               variant="ghost"
               className="h-8 w-8 text-blue-700 hover:bg-blue-50"
               onClick={() => handleShare("linkedin")}
+              data-testid={`button-share-linkedin-${post.id}`}
             >
               <Linkedin className="h-4 w-4" />
             </Button>
@@ -210,7 +129,7 @@ function SocialShare({ post }: { post: (typeof blogPosts)[0] }) {
   );
 }
 
-function BlogCard({ post }: { post: (typeof blogPosts)[0] }) {
+function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Card className="h-full border-none shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden bg-white flex flex-col">
       <div className="relative h-48 overflow-hidden">
@@ -248,13 +167,16 @@ function BlogCard({ post }: { post: (typeof blogPosts)[0] }) {
         </p>
       </CardContent>
       <CardFooter className="pt-0 mt-auto flex justify-between items-center border-t pt-4 pb-4 px-6 bg-gray-50/50">
-        <Button
-          variant="ghost"
-          className="p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent font-semibold group/btn"
-        >
-          Read Article{" "}
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-        </Button>
+        <Link href={`/blog/${(post as any).slug}`}>
+          <Button
+            variant="ghost"
+            className="p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent font-semibold group/btn"
+            data-testid={`button-read-article-${post.id}`}
+          >
+            Read Article{" "}
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+          </Button>
+        </Link>
         <SocialShare post={post} />
       </CardFooter>
     </Card>
@@ -266,9 +188,9 @@ export default function BlogPage() {
   const sliderPosts = blogPosts.slice(3);
 
   useEffect(() => {
-    document.title = "Mental Health Blog & Wellness Insights | Jaipur";
+    document.title = "Mental Health Blog & Wellness Insights | Dr. Urmil Bishnoi Jaipur";
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute("content", "Stay informed with the latest insights on mental wellness, anxiety relief, and therapy techniques from Jaipur's top psychologist, Dr. Urmil Bishnoi.");
+    if (metaDesc) metaDesc.setAttribute("content", "Stay informed with the latest insights on mental wellness, anxiety relief, depression therapy, and PTSD treatment from Jaipur's best psychologist, Dr. Urmil Bishnoi.");
   }, []);
 
   return (
@@ -281,17 +203,16 @@ export default function BlogPage() {
               <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-2 block">
                 Our Blog
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 font-heading">
-                Latest{" "}
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 font-heading">
+                Mental Health{" "}
                 <span className="text-primary italic font-serif">Insights</span>
-              </h2>
+              </h1>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Explore articles on mental wellness, therapy techniques, and
-                personal growth to support your journey.
+                Expert articles on anxiety treatment, depression therapy, PTSD recovery, 
+                hypnotherapy, and mental wellness from Dr. Urmil Bishnoi, Jaipur's leading psychologist.
               </p>
             </div>
 
-            {/* Main 3 Blog Posts Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {mainPosts.map((post, index) => (
                 <motion.div
@@ -306,12 +227,11 @@ export default function BlogPage() {
               ))}
             </div>
 
-            {/* Slider for Remaining Posts */}
             {sliderPosts.length > 0 && (
               <div className="mt-16">
-                <h3 className="text-2xl font-bold mb-8 text-gray-800 text-center font-heading">
+                <h2 className="text-2xl font-bold mb-8 text-gray-800 text-center font-heading">
                   More Articles
-                </h3>
+                </h2>
                 <div className="max-w-5xl mx-auto px-4 relative">
                   <Carousel
                     opts={{
@@ -321,7 +241,7 @@ export default function BlogPage() {
                     className="w-full"
                   >
                     <CarouselContent className="-ml-2 md:-ml-4">
-                      {sliderPosts.map((post, index) => (
+                      {sliderPosts.map((post) => (
                         <CarouselItem
                           key={post.id}
                           className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"

@@ -11,9 +11,9 @@ import { useEffect } from "react";
 import { generateArticleSchema } from "@/lib/schema";
 
 export default function BlogPost() {
-  const [match, params] = useRoute("/blog/:id");
-  const id = params?.id ? parseInt(params.id) : null;
-  const post = blogPosts.find((p) => p.id === id);
+  const [match, params] = useRoute("/blog/:slug");
+  const slug = params?.slug || null;
+  const post = blogPosts.find((p) => (p as any).slug === slug);
 
   useEffect(() => {
     if (post) {

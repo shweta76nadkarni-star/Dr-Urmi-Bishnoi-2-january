@@ -28,6 +28,7 @@ export interface BlogArticleSchema {
 
 export function generateArticleSchema(blogPost: {
   id: number;
+  slug: string;
   title: string;
   metaDescription?: string;
   excerpt: string;
@@ -35,7 +36,7 @@ export function generateArticleSchema(blogPost: {
   date: string;
   keywords?: string[];
 }): BlogArticleSchema {
-  const articleUrl = `https://www.drurmilbishnoi.in/blog/${blogPost.id}`;
+  const articleUrl = `https://www.drurmilbishnoi.in/blog/${blogPost.slug}`;
   const logoUrl = "https://www.drurmilbishnoi.in/logo.png";
   
   const datePublished = new Date(blogPost.date).toISOString();
@@ -79,7 +80,7 @@ export function generateOrganizationSchema() {
     "@id": "https://www.drurmilbishnoi.in",
     url: "https://www.drurmilbishnoi.in",
     telephone: "+91-XXXXXXXXXX",
-    priceRange: "₹₹",
+    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Your Clinic Address",

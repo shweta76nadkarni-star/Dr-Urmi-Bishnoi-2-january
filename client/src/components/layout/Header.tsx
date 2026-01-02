@@ -29,7 +29,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-2",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-1",
       )}
     >
       <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
@@ -49,7 +49,7 @@ export default function Header() {
             <Link key={link.name} href={link.href}>
               <span
                 className={cn(
-                  "text-sm font-semibold transition-colors cursor-pointer",
+                  "text-md font-semibold transition-colors cursor-pointer",
                   location === link.href
                     ? "text-primary"
                     : "text-gray-900 hover:text-primary",

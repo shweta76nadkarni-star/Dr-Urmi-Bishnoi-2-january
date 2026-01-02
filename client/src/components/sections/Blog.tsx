@@ -55,7 +55,7 @@ function BlogCard({ post }: { post: (typeof blogPosts)[0] }) {
         </p>
       </CardContent>
       <CardFooter className="pt-0 mt-auto">
-        <Link href={`/blog/${post.id}`}>
+        <Link href={`/blog/${post.slug}`}>
           <Button
             variant="ghost"
             className="p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent font-semibold group/btn cursor-pointer"

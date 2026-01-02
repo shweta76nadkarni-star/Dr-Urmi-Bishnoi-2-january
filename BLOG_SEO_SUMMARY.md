@@ -6,8 +6,25 @@ Total Blog Posts: 10 comprehensive articles (800-1200 words each)
 
 ---
 
+## SEO-Friendly URL Structure
+
+All blog URLs now use descriptive slugs instead of numeric IDs:
+- `/blog/best-psychologist-in-jaipur`
+- `/blog/anxiety-treatment-jaipur`
+- `/blog/depression-therapy-jaipur`
+- `/blog/hypnotherapy-jaipur-clinical-hypnosis`
+- `/blog/ptsd-treatment-jaipur-trauma-therapy`
+- `/blog/career-counseling-jaipur`
+- `/blog/mindfulness-techniques-mental-health`
+- `/blog/relationship-counseling-jaipur-couples-therapy`
+- `/blog/mental-health-stigma-india`
+- `/blog/self-care-strategies-mental-health`
+
+---
+
 ## Blog Post #1: Best Psychologist in Jaipur
 
+**URL Slug:** `/blog/best-psychologist-in-jaipur`  
 **SEO Title:** Best Psychologist in Jaipur - Dr. Urmil Bishnoi (58 chars)  
 **Meta Description:** Looking for the best psychologist in Jaipur? Dr. Urmil Bishnoi offers expert therapy for anxiety, depression, PTSD, and more. Book your appointment today. (160 chars)
 

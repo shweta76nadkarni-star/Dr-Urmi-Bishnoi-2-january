@@ -36,6 +36,7 @@ export const services = [
 export const blogPosts = [
   {
     id: 1,
+    slug: "best-psychologist-in-jaipur",
     title: "Best Psychologist in Jaipur: Finding Mental Health Support",
     seoTitle: "Best Psychologist in Jaipur - Dr. Urmil Bishnoi",
     metaDescription: "Looking for the best psychologist in Jaipur? Dr. Urmil Bishnoi offers expert therapy for anxiety, depression, PTSD, and more. Book your appointment today.",
@@ -88,6 +89,7 @@ Remember, seeking help is a sign of strength, not weakness. If you're ready to i
   },
   {
     id: 2,
+    slug: "anxiety-treatment-jaipur",
     title: "Anxiety Treatment in Jaipur: Expert Guide to Relief",
     seoTitle: "Anxiety Treatment Jaipur - Expert Therapy by Dr. Urmil",
     metaDescription: "Get effective anxiety treatment in Jaipur. Dr. Urmil Bishnoi specializes in anxiety disorders, panic attacks, and stress management with proven techniques.",
@@ -146,6 +148,7 @@ Living with anxiety is exhausting, but relief is possible. Dr. Urmil Bishnoi's a
   },
   {
     id: 3,
+    slug: "depression-therapy-jaipur",
     title: "Depression Therapy in Jaipur: Path to Recovery",
     seoTitle: "Depression Therapy Jaipur - Dr. Urmil Bishnoi Treatment",
     metaDescription: "Professional depression therapy in Jaipur. Dr. Urmil Bishnoi offers compassionate, evidence-based treatment for depression. Start your healing journey today.",
@@ -222,6 +225,7 @@ If you're struggling with depression in Jaipur, know that help is available and 
   },
   {
     id: 4,
+    slug: "hypnotherapy-jaipur-clinical-hypnosis",
     title: "Hypnotherapy in Jaipur: Science-Backed Healing Method",
     seoTitle: "Hypnotherapy Jaipur - Clinical Hypnosis by Dr. Urmil",
     metaDescription: "Discover the power of clinical hypnotherapy in Jaipur. Dr. Urmil Bishnoi uses evidence-based hypnosis for anxiety, habits, trauma, and personal growth.",
@@ -302,6 +306,7 @@ If you're curious about hypnotherapy's potential to address your challenges, the
   },
   {
     id: 5,
+    slug: "ptsd-treatment-jaipur-trauma-therapy",
     title: "PTSD Treatment Jaipur: Trauma Recovery Guide",
     seoTitle: "PTSD Treatment Jaipur - Trauma Therapy by Dr. Urmil",
     metaDescription: "Expert PTSD treatment in Jaipur. Dr. Urmil Bishnoi specializes in trauma-focused therapy to help you heal from past experiences and reclaim your peace.",
@@ -392,6 +397,7 @@ Living with PTSD is exhausting and isolating, but healing is possible. Dr. Urmil
   },
   {
     id: 6,
+    slug: "career-counseling-jaipur",
     title: "Career Counseling Jaipur: Find Your Professional Path",
     seoTitle: "Career Counseling Jaipur - Dr. Urmil Bishnoi Guidance",
     metaDescription: "Professional career counseling in Jaipur. Dr. Urmil Bishnoi helps you align your career with your strengths, values, and life goals. Book consultation today.",
@@ -482,6 +488,7 @@ If you're feeling stuck, unfulfilled, or uncertain about your professional path,
   },
   {
     id: 7,
+    slug: "mindfulness-techniques-mental-health",
     title: "Mindfulness for Mental Health: Practical Daily Techniques",
     seoTitle: "Mindfulness Techniques for Mental Health - Jaipur Guide",
     metaDescription: "Learn evidence-based mindfulness techniques for anxiety, stress, and depression. Dr. Urmil Bishnoi shares practical exercises you can use daily in Jaipur.",
@@ -576,10 +583,11 @@ Over time, mindfulness becomes second nature, transforming how you experience li
     category: "Wellness",
     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2070&auto=format&fit=crop",
     keywords: ["mindfulness techniques", "meditation Jaipur", "stress relief", "mindfulness therapy"],
-    internalLinks: ["/services", "/blog/2"],
+    internalLinks: ["/services", "/blog/anxiety-treatment-jaipur"],
   },
   {
     id: 8,
+    slug: "relationship-counseling-jaipur-couples-therapy",
     title: "Relationship Counseling: Strengthening Bonds in Jaipur",
     seoTitle: "Relationship Counseling Jaipur - Couples Therapy",
     metaDescription: "Expert relationship counseling in Jaipur by Dr. Urmil Bishnoi. Improve communication, resolve conflicts, and strengthen your relationship. Book today.",
@@ -680,6 +688,7 @@ If your relationship is struggling, know that help is available. Dr. Urmil Bishn
   },
   {
     id: 9,
+    slug: "mental-health-stigma-india",
     title: "Mental Health Stigma: Breaking Barriers in Jaipur",
     seoTitle: "Breaking Mental Health Stigma - Jaipur Psychology",
     metaDescription: "Understanding and overcoming mental health stigma in India. Dr. Urmil Bishnoi discusses why seeking therapy is a sign of strength, not weakness.",
@@ -788,6 +797,7 @@ Dr. Urmil Bishnoi understands the cultural context and provides culturally sensi
   },
   {
     id: 10,
+    slug: "self-care-strategies-mental-health",
     title: "Self-Care Strategies for Better Mental Health",
     seoTitle: "Self-Care for Mental Health - Expert Tips from Jaipur",
     metaDescription: "Learn essential self-care strategies for mental wellbeing. Dr. Urmil Bishnoi shares science-backed techniques to reduce stress and improve mental health.",
@@ -914,6 +924,6 @@ Dr. Urmil Bishnoi can help you develop a personalized self-care plan that fits y
     category: "Self Care",
     image: "https://images.unsplash.com/photo-1515847049296-a281d6401047?q=80&w=2070&auto=format&fit=crop",
     keywords: ["self-care mental health", "stress management", "wellbeing practices", "mental health tips"],
-    internalLinks: ["/services", "/blog/7", "/contact"],
+    internalLinks: ["/services", "/blog/mindfulness-techniques-mental-health", "/contact"],
   },
 ];
