@@ -79,3 +79,10 @@ Preferred communication style: Simple, everyday language.
 ### Development Tools
 - **Replit Plugins**: Cartographer, dev banner, and runtime error overlay for Replit environment
 - **TypeScript**: Strict mode enabled with path aliases (@/, @shared/, @assets/)
+
+### Performance Optimizations
+- **Code Splitting**: All route components lazy loaded with React.lazy() + Suspense
+- **Image Optimization**: Lazy loading (loading="lazy", decoding="async"), blur placeholders, explicit dimensions
+- **Component Memoization**: All section and card components wrapped with React.memo()
+- **Font Optimization**: Single font family (Poppins) with async loading pattern
+- **Build Optimization**: Vite manual chunk splitting (vendor-react, vendor-motion, vendor-ui, vendor-query)
