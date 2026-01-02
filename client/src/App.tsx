@@ -10,6 +10,7 @@ import ServicesPage from "@/pages/ServicesPage";
 import BlogPage from "@/pages/BlogPage";
 import BlogPost from "@/pages/BlogPost";
 import ContactPage from "@/pages/ContactPage";
+import BookAppointmentPage from "@/pages/BookAppointmentPage";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/blog" component={BlogPage} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/contact" component={ContactPage} />
+      <Route path="/book-appointment" component={BookAppointmentPage} />
       <Route component={NotFound} />
     </Switch>
   );
