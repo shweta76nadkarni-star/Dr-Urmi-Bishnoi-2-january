@@ -8,6 +8,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { useEffect } from "react";
+import { generateArticleSchema } from "@/lib/schema";
 
 export default function BlogPost() {
   const [match, params] = useRoute("/blog/:id");
@@ -16,9 +17,36 @@ export default function BlogPost() {
 
   useEffect(() => {
     if (post) {
-      document.title = `${post.title} | Dr. Urmil Bishnoi Blog`;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute("content", post.excerpt);
+      const seoTitle = (post as any).seoTitle || post.title;
+      const metaDesc = (post as any).metaDescription || post.excerpt;
+      
+      document.title = `${seoTitle} | Dr. Urmil Bishnoi`;
+      
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (!metaDescription) {
+        metaDescription = document.createElement('meta');
+        metaDescription.setAttribute('name', 'description');
+        document.head.appendChild(metaDescription);
+      }
+      metaDescription.setAttribute("content", metaDesc);
+
+      let existingSchema = document.querySelector('script[type="application/ld+json"]');
+      if (existingSchema) {
+        existingSchema.remove();
+      }
+
+      const schema = generateArticleSchema(post as any);
+      const schemaScript = document.createElement('script');
+      schemaScript.type = 'application/ld+json';
+      schemaScript.text = JSON.stringify(schema);
+      document.head.appendChild(schemaScript);
+
+      return () => {
+        const scriptToRemove = document.querySelector('script[type="application/ld+json"]');
+        if (scriptToRemove) {
+          scriptToRemove.remove();
+        }
+      };
     }
   }, [post]);
 
@@ -30,7 +58,7 @@ export default function BlogPost() {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Post Not Found</h1>
           <p className="text-gray-600 mb-8">The blog post you are looking for does not exist.</p>
           <Link href="/blog">
-            <Button>Back to Blog</Button>
+            <Button data-testid="button-back-to-blog">Back to Blog</Button>
           </Link>
         </div>
         <Footer />
@@ -42,7 +70,6 @@ export default function BlogPost() {
     <div className="min-h-screen bg-white">
       <Header />
       <main className="pt-24 pb-20">
-        {/* Hero Section */}
         <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
           <div className="absolute inset-0 bg-black/40 z-10" />
           <img 
@@ -57,22 +84,22 @@ export default function BlogPost() {
               className="max-w-4xl"
             >
               <Link href="/blog">
-                <Button variant="outline" className="text-white border-white hover:bg-white/20 hover:text-white mb-6 bg-transparent">
+                <Button variant="outline" className="text-white border-white hover:bg-white/20 hover:text-white mb-6 bg-transparent" data-testid="button-back-to-articles">
                   <ArrowLeft className="mr-2 h-4 w-4" /> Back to Articles
                 </Button>
               </Link>
-              <Badge className="bg-primary hover:bg-primary/90 text-white mb-4 text-sm font-semibold tracking-wider uppercase border-none">
+              <Badge className="bg-primary hover:bg-primary/90 text-white mb-4 text-sm font-semibold tracking-wider uppercase border-none" data-testid={`badge-category-${post.category.toLowerCase().replace(/\s+/g, '-')}`}>
                 {post.category}
               </Badge>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-heading leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-heading leading-tight" data-testid="heading-blog-title">
                 {post.title}
               </h1>
               <div className="flex flex-wrap items-center gap-6 text-white/90 text-sm md:text-base">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" data-testid="text-blog-date">
                   <Calendar className="h-5 w-5" />
                   {post.date}
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" data-testid="text-blog-readtime">
                   <Clock className="h-5 w-5" />
                   {post.readTime}
                 </div>
@@ -81,7 +108,6 @@ export default function BlogPost() {
           </div>
         </div>
 
-        {/* Content Section */}
         <article className="container mx-auto px-4 md:px-6 py-12 md:py-16">
           <div className="max-w-3xl mx-auto">
             <motion.div 
@@ -89,11 +115,16 @@ export default function BlogPost() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="prose prose-lg md:prose-xl max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-900"
+              data-testid="article-content"
             >
               {post.content ? (
                 post.content.split('\n').map((paragraph, index) => {
                   if (paragraph.trim().startsWith('###')) {
                      return <h3 key={index} className="text-2xl font-bold mt-8 mb-4">{paragraph.replace('###', '').trim()}</h3>
+                  }
+                  if (paragraph.trim().startsWith('**') && paragraph.trim().endsWith('**')) {
+                    const text = paragraph.trim().replace(/^\*\*/, '').replace(/\*\*$/, '');
+                    return <h4 key={index} className="text-xl font-bold mt-6 mb-3">{text}</h4>
                   }
                   if (paragraph.trim().startsWith('-')) {
                      return <li key={index} className="ml-4 mb-2">{paragraph.replace('-', '').trim()}</li>
@@ -116,12 +147,27 @@ export default function BlogPost() {
               <div className="flex items-center gap-2">
                 <Tag className="h-5 w-5 text-gray-400" />
                 <span className="text-gray-600 font-medium">Category:</span>
-                <span className="text-primary font-semibold">{post.category}</span>
-              </div>
-              <div className="flex gap-2">
-                {/* Social Share Buttons could go here */}
+                <span className="text-primary font-semibold" data-testid="text-category">{post.category}</span>
               </div>
             </div>
+
+            {(post as any).internalLinks && (post as any).internalLinks.length > 0 && (
+              <div className="mt-8 p-6 bg-gray-50 rounded-md">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">Related Resources</h3>
+                <div className="flex flex-wrap gap-3">
+                  {(post as any).internalLinks.map((link: string, index: number) => (
+                    <Link key={index} href={link}>
+                      <Button variant="outline" size="sm" data-testid={`button-related-link-${index}`}>
+                        {link === '/services' && 'View Our Services'}
+                        {link === '/contact' && 'Book Appointment'}
+                        {link === '/about' && 'About Dr. Urmil Bishnoi'}
+                        {link.startsWith('/blog/') && 'Related Article'}
+                      </Button>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </article>
       </main>
